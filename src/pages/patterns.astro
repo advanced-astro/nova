@@ -1,0 +1,79 @@
+---
+import Base from '@layouts/Base.astro';
+import Button from '@components/Button.astro';
+import Icon from '@components/Icon.astro';
+import MediaText from '@components/MediaText.astro';
+import Section from '@components/Section.astro';
+import Gallery from '@components/Gallery.astro';
+---
+
+<Base>
+	<Section collapseBottom>
+		<div class="flow flow-space-3 text-center max-w-2xl mx-auto">
+			<span
+				class="text-xs bg-gradient-to-br from-orange-100 to-pink-100 text-black/75 rounded-full px-3 py-1.5 leading-none inline-block uppercase font-bold tracking-wide"
+			>
+				Example
+			</span>
+			<h1>Building a Website has Never Been This Easy</h1>
+			<p class="text-xl text-balance">
+				Lorum ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.
+			</p>
+			<Button href="/contact">
+				Get Started
+				<Icon name="arrow-right" class="text-white text-xl" slot="end" />
+			</Button>
+		</div>
+	</Section>
+	<Section class="bg-gradient-to-b from-white to-teal-50">
+		<MediaText>
+			<img
+				class="border-white/50 border-2 shadow-xl rounded-xl"
+				src="https://unsplash.it/800/600"
+				alt=""
+				width="800"
+				height="600"
+			/>
+			<div class="flow">
+				<h2>Lorum Ipsum</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum
+					mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+				</p>
+			</div>
+		</MediaText>
+	</Section>
+	<Section
+		backgroundImage="https://unsplash.it/1920/1080"
+		innerClass="text-white bg-gradient-to-br from-orange-500/80 to-pink-500/80 bg-opacity-50"
+	>
+		<div class="flow text-center mx-auto max-w-lg">
+			<h2>This is a Section</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.
+				Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit.
+			</p>
+			<Button href="/contact" icon="caret-down" variant="secondary">
+				Get Started
+				<Icon name="arrow-right" class="fill-current text-xl" slot="end" />
+			</Button>
+		</div>
+	</Section>
+	<Section>
+		<div class="flow flow-space-6">
+			<header class="flow flow-space-0.5 text-center max-w-md mx-auto">
+				<h2>Our Work</h2>
+				<p>Some of our favourite work. Like what you see? <a href="/contact">Work with us.</a></p>
+			</header>
+			<Gallery
+				imageClass="border-white/50 border-2 shadow-lg overflow-hidden rounded-xl transition hover:grayscale"
+				images={[
+					{ src: 'https://unsplash.it/1080?random=1' },
+					{ src: 'https://unsplash.it/1080?random=2' },
+					{ src: 'https://unsplash.it/1080?random=3' },
+					{ src: 'https://unsplash.it/1080?random=4' },
+				]}
+			/>
+		</div>
+	</Section>
+</Base>

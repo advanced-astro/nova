@@ -1,15 +1,46 @@
 ---
+import util from '@src/util.js';
+
+import Base from '@layouts/Base.astro';
+import Container from '@components/Container.astro';
+import ContactForm from '@components/ContactForm.astro';
+
+/* delete */
+const greetings = ["G'day", 'Hey', 'Sup', 'Bonjour', 'Seiki', 'Ciao', 'Hola'];
+const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+/* end delete */
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title="Home">
+	<Container>
+		<!-- delete -->
+		<main class="flow flow-space-3 text-center px-8 py-20">
+			<h1>{greeting}</h1>
+			<p class="text-gray-7-0">
+				Don't forget to update your project info in
+				<a href={`vscode://file/${util.cwd}/src/site.js`}>
+					<code class="bg-gray-100 text-blue-600 text-sm inline-block px-2 py-1 rounded-lg">src/site.js</code>
+				</a>
+			</p>
+			<nav class="flow flow-space-2 mt-12">
+				<h2 class="h4">Resources</h2>
+				<ul class="flex flex-wrap items-center justify-center gap-6">
+					<li>
+						<a
+							href="https://resknow.notion.site/8ade470905054217af04ef7ef7ff0289?v=4d3bea11bfd04664a5581f540de3ec11"
+						>
+							Components & Patterns
+						</a>
+					</li>
+					<li>
+						<a href="https://tailwindcss.com">Tailwind CSS</a>
+					</li>
+					<li>
+						<a href="https://astro.build">Astro</a>
+					</li>
+				</ul>
+			</nav>
+		</main>
+		<!-- end delete -->
+	</Container>
+</Base>

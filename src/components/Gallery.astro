@@ -1,0 +1,13 @@
+---
+import { twMerge as tw } from 'tailwind-merge';
+import Lightbox from '@components/Lightbox.astro';
+
+const { class: className, images, imageClass: imageClassName } = Astro.props;
+---
+
+<Lightbox
+	class={tw('grid grid-cols-2 md:grid-cols-4 gap-6', className)}
+	name="gallery"
+	images={images}
+	imageClass={imageClassName}
+/>

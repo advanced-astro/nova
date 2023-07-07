@@ -1,0 +1,24 @@
+---
+import Button from '@components/Button.astro';
+import TextInput from '@components/Form/TextInput.astro';
+import TextAreaInput from '@components/Form/TextAreaInput.astro';
+import SelectInput from '@components/Form/SelectInput.astro';
+
+const { id, recaptcha = false } = Astro.props;
+---
+
+<form class="flow" goform action={`https://goform.app/s/${id}`} method="post">
+	<slot name="start" />
+	<TextInput name="name" label="Name" />
+	<TextInput name="email" label="E-mail address" type="email" />
+	<TextInput name="phone" label="Phone number" type="tel" />
+	<TextAreaInput name="message" label="Message" />
+	<slot name="before-actions" />
+	<div class="flow flow-space-2">
+		<Button type="submit">Send</Button>
+	</div>
+	<slot name="end" />
+</form>
+
+<script src="https://goform.app/validate.js" is:inline></script>
+{recaptcha && <script src={`https://goform.app/recaptcha/${id}`} is:inline />}

@@ -1,0 +1,42 @@
+---
+const { class: className, children = null, key, url, label } = Astro.props;
+---
+
+{
+	children ? (
+		<li class="group relative" style={`z-index: ${key}`}>
+			<a class:list={['text-gray-700', 'no-underline', 'uppercase', 'hover:text-gray-900', className]} href={url}>
+				{label}
+			</a>
+
+			<ul class="menu-dropdown hidden absolute top-8 -left-2 bg-white rounded px-6 py-4 shadow-xl min-w-max w-40 flow flow-space-2 group-hover:block">
+				{children.map((child) => {
+					return (
+						<li>
+							<a href={child.href}>{child.label}</a>
+						</li>
+					);
+				})}
+			</ul>
+		</li>
+	) : (
+		<li class="relative">
+			<a class:list={['text-gray-700', 'no-underline', 'uppercase', 'hover:text-gray-900', className]} href={url}>
+				{label}
+			</a>
+		</li>
+	)
+}
+
+<style>
+	/* Fixes the jank when moving from the parent link to the dropdown */
+	.menu-dropdown:before {
+		content: '';
+		display: block;
+		height: 30px;
+		position: absolute;
+		top: -30px;
+		left: 0;
+		width: 100%;
+	}
+</style>

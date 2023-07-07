@@ -1,0 +1,11 @@
+---
+const { id, name, type = 'text', label, description, placeholder } = Astro.props;
+const labelFor = id || name;
+const inputId = id || name;
+---
+
+<div class="flow flow-space-2">
+	<label for={labelFor}>{label}</label>
+	<input type={type} id={inputId} name={name} placeholder={placeholder} />
+	{description && <p class="text-sm text-gray-600">{description}</p>}
+</div>

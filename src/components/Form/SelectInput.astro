@@ -1,0 +1,22 @@
+---
+import Icon from '@components/Icon.astro';
+
+const { id, name, label, description, options = [] } = Astro.props;
+const labelFor = id || name;
+const inputId = id || name;
+---
+
+<div class="flow flow-space-2">
+	<label for={labelFor}>{label}</label>
+	<div class="relative">
+		<select id={inputId} name={name} class="pr-12">
+			{
+				options.map((option) => {
+					return <option value={option.value}>{option.label}</option>;
+				})
+			}
+		</select>
+		<Icon name="caret-down" class="absolute right-4 top-3 text-gray-600 text-lg" />
+	</div>
+	{description && <p class="text-sm text-gray-600">{description}</p>}
+</div>

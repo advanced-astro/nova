@@ -1,0 +1,14 @@
+---
+import { Icon as AstroIcon } from 'astro-icon';
+
+const { name, class: className } = Astro.props;
+---
+
+<AstroIcon name={name} class:list={[className]} />
+
+<style>
+	svg {
+		width: 1em;
+		height: 1em;
+	}
+</style>

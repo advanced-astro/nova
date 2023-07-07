@@ -1,0 +1,40 @@
+---
+import site from '@src/site.js';
+import util from '@src/util.js';
+
+import { Image } from '@astrojs/image/components';
+import Container from '@components/Container.astro';
+---
+
+<Container as="footer" class="flow text-center py-4 px-6 text-gray-700 text-sm">
+	<p>
+		{site.name} &copy; {util.currentYear}.
+		<a class="ml-3" href="/privacy-policy">Privacy Policy</a>
+	</p>
+
+	<p class="flex items-center justify-center">
+		Web Design by
+		<Image
+			class="mx-3"
+			src="https://assets.resknow.co.uk/branding/resknow/r-48x48.png"
+			width={28}
+			aspectRatio="1:1"
+			format="png"
+			alt=""
+			loading="lazy"
+		/>
+		<a href="https://www.resknow.co.uk" rel="nofollow">Resknow</a>
+	</p>
+
+	<p class="text-xs text-gray-500">
+		This site is protected by reCAPTCHA and the Google
+		<a href="https://policies.google.com/privacy">Privacy Policy</a> and
+		<a href="https://policies.google.com/terms">Terms of Service</a> apply.
+	</p>
+</Container>
+
+<style>
+	footer {
+		view-transition-name: page-footer;
+	}
+</style>
