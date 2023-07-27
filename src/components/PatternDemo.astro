@@ -1,0 +1,15 @@
+---
+import Container from '@components/Container.astro';
+import Flow from '@components/Flow.astro';
+import Tag from '@components/Tag.astro';
+
+const { title, tag = 'Pattern' } = Astro.props;
+---
+
+<Flow class="border rounded-xl px-8 py-6 mx-8">
+	<Container as="h2" class="font-normal text-lg">
+		<Tag text={tag} class="mr-4" />
+		{title}
+	</Container>
+	<slot />
+</Flow>

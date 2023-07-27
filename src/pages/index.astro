@@ -3,23 +3,21 @@ import util from '@src/util.js';
 
 import Base from '@layouts/Base.astro';
 import Container from '@components/Container.astro';
-import ContactForm from '@components/ContactForm.astro';
-
-/* delete */
-const greetings = ["G'day", 'Hey', 'Sup', 'Bonjour', 'Seiki', 'Ciao', 'Hola'];
-const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-/* end delete */
 ---
 
 <Base title="Home">
 	<Container>
 		<!-- delete -->
 		<main class="flow flow-space-3 text-center px-8 py-20">
-			<h1>{greeting}</h1>
+			<h1>{util.greeting}</h1>
 			<p class="text-gray-7-0">
 				Don't forget to update your project info in
 				<a href={`vscode://file/${util.cwd}/src/site.js`}>
-					<code class="bg-gray-100 text-blue-600 text-sm inline-block px-2 py-1 rounded-lg">src/site.js</code>
+					<code
+						class="bg-gray-100 text-blue-600 text-sm inline-block px-2 py-1 rounded-lg"
+					>
+						src/site.js
+					</code>
 				</a>
 			</p>
 			<nav class="flow flow-space-2 mt-12">

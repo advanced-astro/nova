@@ -4,7 +4,12 @@ import site from '@src/site.js';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 
-const { title = 'New Page', canonical = null, description = null, bodyClass } = Astro.props;
+const {
+	title = 'New Page',
+	canonical = null,
+	description = null,
+	bodyClass,
+} = Astro.props;
 ---
 
 <html lang={site.language || 'en'}>
@@ -15,7 +20,11 @@ const { title = 'New Page', canonical = null, description = null, bodyClass } = 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="twitter:dnt" content="on" />
-		{site?.enableViewTransitions && <meta name="view-transition" content="same-origin" />}
+		{
+			site?.enableViewTransitions && (
+				<meta name="view-transition" content="same-origin" />
+			)
+		}
 
 		<title>{title}</title>
 		{description && <meta name="description" content={description} />}
@@ -30,7 +39,7 @@ const { title = 'New Page', canonical = null, description = null, bodyClass } = 
 		<slot name="head" />
 	</head>
 	<body class:list={bodyClass}>
-		<slot name="before-header" />
+		<slot name="body-open" />
 		<Header />
 		<slot />
 		<Footer />
@@ -39,7 +48,10 @@ const { title = 'New Page', canonical = null, description = null, bodyClass } = 
 		{
 			site.cookieConsent.show && (
 				<cookie-consent-banner hidden class="shadow-lg">
-					<p>{site.cookieConsent.text || 'We use cookies to provide the best experience.'}</p>
+					<p>
+						{site.cookieConsent.text ||
+							'We use cookies to provide the best experience.'}
+					</p>
 				</cookie-consent-banner>
 			)
 		}
@@ -54,6 +66,10 @@ const { title = 'New Page', canonical = null, description = null, bodyClass } = 
 
 {
 	site.cookieConsent.show && (
-		<script type="module" src="https://unpkg.com/simple-cookie-consent-banner/cookie-consent-banner.js" is:inline />
+		<script
+			type="module"
+			src="https://unpkg.com/simple-cookie-consent-banner/cookie-consent-banner.js"
+			is:inline
+		/>
 	)
 }

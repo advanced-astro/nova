@@ -1,4 +1,3 @@
-
 export default {
 	/**
 	 * Site name, useful for page titles
@@ -19,7 +18,17 @@ export default {
 	menus: {
 		main: [
 			{ label: 'Home', href: '/' },
+			{ label: 'About', href: '/about' },
+			{ label: 'Services', href: '/services' },
 			{ label: 'Contact Us', href: '/contact' },
+		],
+		splitLeft: [
+			{ label: 'Home', href: '/' },
+			{ label: 'Services', href: '/services' },
+		],
+		splitRight: [
+			{ label: 'About', href: '/about' },
+			{ label: 'Contact', href: '/contact' },
 		],
 	},
 

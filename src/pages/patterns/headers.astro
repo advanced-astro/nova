@@ -1,0 +1,110 @@
+---
+import site from '@src/site.js';
+import util from '@src/util.js';
+
+import Base from '@layouts/Base.astro';
+import Container from '@components/Container.astro';
+import Flow from '@components/Flow.astro';
+import PatternDemo from '@components/PatternDemo.astro';
+
+import Logo from '@components/Logo.astro';
+import Menu from '@components/Menu.astro';
+import MobileMenu from '@components/MobileMenu.astro';
+import Icon from '@components/Icon.astro';
+---
+
+<Base title="Patterns / Headers">
+	<Flow space="lg">
+		<PatternDemo title="Left Aligned Logo, Right Aligned Menu">
+			<Container
+				as="header"
+				class="flex items-center justify-between gap-8 py-6 relative z-50"
+			>
+				<Logo />
+				<Menu />
+				<MobileMenu showPhoneNumber />
+			</Container>
+		</PatternDemo>
+		<PatternDemo
+			title="Left Aligned Logo, Left Aligned Menu, Right Aligned Actions"
+		>
+			<Container
+				as="header"
+				class="flex items-center justify-between gap-8 py-6 relative z-50"
+			>
+				<div class="flex items-center gap-8">
+					<Logo />
+					<Menu />
+				</div>
+				<div class="flex items-center gap-8">
+					<a
+						class="no-underline text-lg weight-bold"
+						href={`tel:${site.phone}`}
+					>
+						{site.phone}
+					</a>
+					<MobileMenu showPhoneNumber />
+				</div>
+			</Container>
+		</PatternDemo>
+		<PatternDemo
+			title="Left Aligned Logo, Right Aligned Menu, Right Aligned Actions"
+		>
+			<Container
+				as="header"
+				class="flex items-center justify-between gap-8 py-6 relative z-50"
+			>
+				<Logo />
+				<div class="flex flex-col items-end gap-1">
+					<div class="flex items-center gap-8">
+						<p class="hidden items-center gap-1.5 sm:flex">
+							<Icon name="map-marker" class="w-5 h-5" />
+							<span class="text-gray-700">Bromley, UK</span>
+						</p>
+						<a
+							class="no-underline text-lg weight-bold"
+							href={`tel:${site.phone}`}
+						>
+							{site.phone}
+						</a>
+						<MobileMenu showPhoneNumber />
+					</div>
+					<Menu />
+				</div>
+			</Container>
+		</PatternDemo>
+		<PatternDemo title="Left Aligned Logo, Right Aligned Menu & Actions">
+			<Container
+				as="header"
+				class="flex items-center justify-between gap-8 py-6 relative z-50"
+			>
+				<Logo />
+				<div class="flex items-center gap-8">
+					<Menu />
+					<a
+						class="flex items-center gap-2 no-underline text-lg weight-bold"
+						href={`tel:${site.phone}`}
+					>
+						<Icon name="phone" class="w-7 h-7" />
+						{site.phone}
+					</a>
+					<MobileMenu showPhoneNumber />
+				</div>
+			</Container>
+		</PatternDemo>
+		<PatternDemo title="Centered Logo, Split Menu">
+			<Container
+				as="header"
+				class="flex items-center justify-between gap-8 py-6 relative z-50 md:justify-center"
+			>
+				<Logo class="md:hidden" />
+				<MobileMenu showPhoneNumber />
+				<div class="hidden items-center justify-center gap-8 md:flex">
+					<Menu name="splitLeft" />
+					<Logo />
+					<Menu name="splitRight" />
+				</div>
+			</Container>
+		</PatternDemo>
+	</Flow>
+</Base>
