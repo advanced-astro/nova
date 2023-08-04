@@ -17,11 +17,11 @@ export default {
 	 */
 	openingTimes: {
 		mon: '09:00 - 17:00',
-		tue: 'Closed',
+		tue: '09:00 - 17:00',
 		wed: '09:00 - 17:00',
 		thu: '09:00 - 17:00',
 		fri: '09:00 - 17:00',
-		sat: '09:00 - 17:00',
+		sat: 'Closed',
 		sun: 'Closed',
 	},
 
