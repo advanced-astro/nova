@@ -7,11 +7,11 @@ import Section from '@components/Section.astro';
 import SocialLinks from '@components/SocialLinks.astro';
 ---
 
-<Section as="footer" class="text-xs py-12" collapse>
+<Section as="footer" class="bg-gray-800 text-gray-100 text-xs py-12" collapse>
 	<div class="grid gap-8 items-start md:grid-cols-2">
 		<Flow space="md">
-			<Logo />
-			<p class="text-gray-600 max-w-lg">
+			<Logo variant="light" />
+			<p class="text-gray-300 max-w-lg">
 				Nullam congue velit eu fringilla fringilla. Etiam nisl eros,
 				viverra ut nisl sit amet, mattis maximus ante. Vestibulum
 				ullamcorper ligula quam, eget blandit sapien egestas eget.
@@ -28,8 +28,10 @@ import SocialLinks from '@components/SocialLinks.astro';
 					alt=""
 					loading="lazy"
 				/>
-				<a href="https://www.resknow.co.uk" rel="nofollow"
-					>Web Design by Resknow</a
+				<a
+					class="text-white hover:text-yellow-500"
+					href="https://www.resknow.co.uk"
+					rel="nofollow">Web Design by Resknow</a
 				>
 			</p>
 		</Flow>

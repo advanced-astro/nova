@@ -1,0 +1,103 @@
+---
+import site from '@src/site.js';
+import util from '@src/util.js';
+import Logo from '@components/Logo.astro';
+import Flow from '@components/Flow.astro';
+import Section from '@components/Section.astro';
+import SocialLinks from '@components/SocialLinks.astro';
+import Icon from '@components/Icon.astro';
+---
+
+<Section as="footer" class="bg-gray-800 text-gray-100 text-xs py-12" collapse>
+	<div class="grid gap-8 lg:grid-cols-2 lg:gap-32">
+		<Flow>
+			<Logo variant="light" />
+			<p class="text-gray-300 max-w-lg">
+				Nullam congue velit eu fringilla fringilla. Etiam nisl eros,
+				viverra ut nisl sit amet, mattis maximus ante.
+			</p>
+			<p>
+				<a
+					class="text-yellow-500 hover:text-white"
+					href="/privacy-policy">Privacy Policy</a
+				>
+			</p>
+		</Flow>
+		<div class="grid gap-8 sm:grid-cols-2">
+			<Flow>
+				<h3>Our Services</h3>
+				<nav>
+					<Flow as="ul" space="sm">
+						<li>
+							<a class="text-yellow-500 hover:text-white" href="#"
+								>Plumbing</a
+							>
+						</li>
+						<li>
+							<a class="text-yellow-500 hover:text-white" href="#"
+								>Central Heating</a
+							>
+						</li>
+						<li>
+							<a class="text-yellow-500 hover:text-white" href="#"
+								>Drainage</a
+							>
+						</li>
+						<li>
+							<a class="text-yellow-500 hover:text-white" href="#"
+								>Leak Detection</a
+							>
+						</li>
+						<li>
+							<a class="text-yellow-500 hover:text-white" href="#"
+								>Bathrooms</a
+							>
+						</li>
+						<li>
+							<a class="text-yellow-500 hover:text-white" href="#"
+								>Gas Safety</a
+							>
+						</li>
+					</Flow>
+				</nav>
+			</Flow>
+			<Flow>
+				<h3>Contact Us</h3>
+				<Flow as="ul" space="sm">
+					<li class="flex gap-3">
+						<Icon
+							name="phone"
+							class="flex-shrink-0 w-5 h-5 fill-current"
+						/>
+						<a
+							class="text-gray-200 hover:text-white font-bold"
+							href={`tel:${site.phone}`}>{site.phone}</a
+						>
+					</li>
+					<li class="flex gap-3">
+						<Icon
+							name="at"
+							class="flex-shrink-0 w-5 h-5 fill-current"
+						/>
+						<a
+							class="text-gray-200 hover:text-white"
+							href={`mailto:${site.email}`}>{site.email}</a
+						>
+					</li>
+					<li class="flex gap-3">
+						<Icon
+							name="map-marker"
+							class="flex-shrink-0 w-5 h-5 fill-current"
+						/>
+						<p class="text-gray-200">{site.address}</p>
+					</li>
+				</Flow>
+				<SocialLinks
+					only={['facebook', 'twitter', 'instagram']}
+					variant="round"
+					class="pt-4"
+				/>
+			</Flow>
+		</div>
+	</div>
+</Section>

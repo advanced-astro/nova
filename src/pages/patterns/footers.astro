@@ -6,6 +6,9 @@ import PatternDemo from '@components/PatternDemo.astro';
 import CenteredSimple from '@components/Templates/Footers/CenteredSimple.astro';
 import CenteredSimpleDark from '@components/Templates/Footers/CenteredSimpleDark.astro';
 import InformationWithSocialLinks from '@components/Templates/Footers/InformationWithSocialLinks.astro';
+import InformationWithSocialLinksDark from '@components/Templates/Footers/InformationWithSocialLinksDark.astro';
+import WithNavigationAndContact from '@components/Templates/Footers/WithNavigationAndContact.astro';
+import WithNavigationAndContactDark from '@components/Templates/Footers/WithNavigationAndContactDark.astro';
 ---
 
 <Base title="Patterns / Text" class="bg-gray-100">
@@ -27,6 +30,24 @@ import InformationWithSocialLinks from '@components/Templates/Footers/Informatio
 			component="Templates/Footers/InformationWithSocialLinks.astro"
 		>
 			<InformationWithSocialLinks />
+		</PatternDemo>
+		<PatternDemo
+			title="Information with Social Links (Dark)"
+			component="Templates/Footers/InformationWithSocialLinksDark.astro"
+		>
+			<InformationWithSocialLinksDark />
+		</PatternDemo>
+		<PatternDemo
+			title="With Navigation and Contact Details"
+			component="Templates/Footers/WithNavigationAndContact.astro"
+		>
+			<WithNavigationAndContact />
+		</PatternDemo>
+		<PatternDemo
+			title="With Navigation and Contact Details (Dark)"
+			component="Templates/Footers/WithNavigationAndContactDark.astro"
+		>
+			<WithNavigationAndContactDark />
 		</PatternDemo>
 	</Flow>
 </Base>
