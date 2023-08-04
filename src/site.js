@@ -86,6 +86,14 @@ export default {
 						href: '/docs/components/lightbox',
 					},
 					{
+						label: 'Menu',
+						href: '/docs/components/menu',
+					},
+					{
+						label: 'MobileMenu',
+						href: '/docs/components/mobile-menu',
+					},
+					{
 						label: 'OpeningTimes',
 						href: '/docs/components/opening-times',
 					},

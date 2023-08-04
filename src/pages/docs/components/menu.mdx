@@ -1,0 +1,68 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Menu
+type: Component
+category: Navigation
+isIncludedWithStarterKit: true
+---
+
+import PatternDemo from '@components/PatternDemo.astro';
+import Menu from '@components/Menu.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="Menu"
+		context="docs"
+		component="Menu.astro"
+		withContainer
+	>
+		<Menu />
+		<p class="md:hidden text-sm text-gray-500">The menu is hidden below the `md` breakpoint. Resize your browser to see the preview.</p>
+	</PatternDemo>
+</div>
+
+This component is available with our Astro Starter Kit.
+
+## Usage
+
+Before you use this component, be sure that you've added the menu to `src/site.js` in the following format:
+
+```js
+export default {
+	...otherConfig,
+
+	/**
+	 * Menus
+	 */
+	menus: {
+		main: [
+			{
+				label: 'Home',
+				href: '/',
+			},
+			{
+				label: 'About',
+				href: '/about',
+			},
+			{
+				label: 'Contact',
+				href: '/contact',
+			},
+		],
+	}
+};
+```
+
+If you don't specify a menu name, the component will look for a menu named `main`.
+Now you can import the component into the page or component you need it and use it!
+
+```jsx
+---
+import Menu from '@components/Menu.astro';
+---
+<Menu />
+```
+
+## Props
+
+- `name` - The name of the menu to display. Defaults to `main`.
