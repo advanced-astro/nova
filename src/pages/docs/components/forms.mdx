@@ -1,0 +1,56 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Forms
+type: Components
+isIncludedInStarterKit: true
+---
+
+import PatternDemo from '@components/PatternDemo.astro';
+import Goform from '@components/Goform.astro';
+import TextInput from '@components/Form/TextInput.astro';
+import TextAreaInput from '@components/Form/TextAreaInput.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="Goform"
+		context="docs"
+		component="Goform.astro"
+		withContainer
+	>
+		<Goform id="example" withSubmitButton>
+			<TextInput name="name" label="Name" />
+			<TextInput name="email" label="Email" type="email" />
+			<TextInput name="phone" label="Phone" type="tel" optional />
+			<TextAreaInput name="message" label="Message" />
+		</Goform>
+	</PatternDemo>
+</div>
+
+We use Goform to handle forms. The Astro Starter Kit comes with some components to make building those forms a little easier.
+
+## Usage
+
+```astro
+---
+import Goform from '@components/Goform.astro';
+---
+
+<Goform id="goform-id" withRecaptcha withSubmitButton>...</Goform>
+```
+
+You can then build your form using HTML or the input components provided. It's recommended you use the provided components for styling consistency.
+
+```jsx
+---
+import Goform from '@components/Goform.astro';
+import TextInput from '@components/Form/TextInput.astro';
+import TextAreaInput from '@components/Form/TextAreaInput.astro';
+---
+
+<Goform id="example" withRecaptcha withSubmitButton>
+	<TextInput name="name" label="Name" />
+	<TextInput name="email" label="Email" type="email" />
+	<TextInput name="phone" label="Phone" type="tel" optional />
+	<TextAreaInput name="message" label="Message" />
+</Goform>
+```

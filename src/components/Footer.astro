@@ -3,13 +3,17 @@ import site from '@src/site.js';
 import util from '@src/util.js';
 
 import Container from '@components/Container.astro';
+import Flow from '@components/Flow.astro';
+import Logo from '@components/Logo.astro';
 ---
 
 <Container as="footer" class="flow text-center py-6 text-gray-700 text-sm">
-	<p>
-		{site.name} &copy; {util.currentYear}.
-		<a class="ml-3" href="/privacy-policy">Privacy Policy</a>
-	</p>
+	<Flow direction="horizontal" space="md" class="items-center justify-center">
+		<Logo href="https://www.resknow.co.uk" withAttribution />
+		<p>
+			&copy; {util.currentYear}.
+		</p>
+	</Flow>
 </Container>
 
 <style>

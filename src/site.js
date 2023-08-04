@@ -2,7 +2,7 @@ export default {
 	/**
 	 * Site name, useful for page titles
 	 */
-	name: `Bolt`,
+	name: `Nova`,
 
 	/**
 	 * Company Information
@@ -10,7 +10,7 @@ export default {
 	email: `studio@resknow.co.uk`,
 	phone: '0208 300 8833',
 	address: '13 St Johns Parade, Sidcup, Kent, DA14 6ES',
-	url: 'https://bolt.resknow.co.uk',
+	url: 'https://nova.resknow.co.uk',
 
 	/**
 	 * Social Links
@@ -34,6 +34,60 @@ export default {
 			{ label: 'Home', href: '/' },
 			{
 				label: 'Components',
+				href: '#',
+				children: [
+					{
+						label: 'Button',
+						href: '/docs/components/button',
+					},
+					{
+						label: 'Carousel',
+						href: '/docs/components/carousel',
+					},
+					{
+						label: 'Container',
+						href: '/docs/components/container',
+					},
+					{
+						label: 'EmailAddress',
+						href: '/docs/components/email-address',
+					},
+					{
+						label: 'Flow',
+						href: '/docs/components/flow',
+					},
+					{
+						label: 'Forms',
+						href: '/docs/components/forms',
+					},
+					{
+						label: 'Gallery',
+						href: '/docs/components/gallery',
+					},
+					{
+						label: 'Icon',
+						href: '/docs/components/icon',
+					},
+					{
+						label: 'Lightbox',
+						href: '/docs/components/lightbox',
+					},
+					{
+						label: 'Section',
+						href: '/docs/components/section',
+					},
+					{
+						label: 'SocialLinks',
+						href: '/docs/components/social-links',
+					},
+					{
+						label: 'YoutubeVideo',
+						href: '/docs/components/youtube-video',
+					},
+				],
+			},
+			{
+				label: 'Patterns',
 				href: '#',
 				children: [
 					{
@@ -73,7 +127,6 @@ export default {
 					},
 				],
 			},
-			{ label: 'Templates', href: '/templates' },
 		],
 		demo: [
 			{ label: 'Home', href: '/' },

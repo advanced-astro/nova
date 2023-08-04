@@ -1,4 +1,6 @@
 ---
+import Icon from '@components/Icon.astro';
+
 interface Props {
 	class?: string;
 	children?: Array<{
@@ -12,7 +14,7 @@ interface Props {
 
 const { class: className, children = null, key, url, label } = Astro.props;
 const linkClass =
-	'text-sm text-gray-500 font-bold no-underline uppercase hover:text-gray-900';
+	'flex items-center gap-2 text-sm text-gray-500 font-bold no-underline uppercase hover:text-gray-900';
 ---
 
 {
@@ -20,9 +22,10 @@ const linkClass =
 		<li class="group relative" style={`z-index: ${key}`}>
 			<a class:list={[linkClass, className]} href={url}>
 				{label}
+				{children && <Icon name="caret-down" class="w-4 h-4" />}
 			</a>
 
-			<ul class="menu-dropdown hidden absolute top-8 -left-2 bg-white rounded px-6 py-4 shadow-xl min-w-max w-40 flow flow-space-2 group-hover:block">
+			<ul class="menu-dropdown hidden absolute top-8 -left-2 bg-white border rounded px-6 py-4 shadow-xl min-w-max w-48 flow flow-space-2 group-hover:block">
 				{children.map((child) => {
 					return (
 						<li>

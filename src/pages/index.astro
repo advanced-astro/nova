@@ -8,13 +8,13 @@ import Hero from '@components/Hero.astro';
 import Button from '@components/Button.astro';
 import Icon from '@components/Icon.astro';
 
-const pages = site.menus.main[1].children;
+const pages = site.menus.main[2].children;
 ---
 
 <Base title="Home">
 	<Hero
-		title="Bolt"
-		description="Bolt is our component library for Astro, focused on building brochure and marketing websites."
+		title="Nova"
+		description="Nova is our component library for Astro, focused on building brochure and marketing websites."
 	>
 		<div class="flex flex-wrap items-center justify-center gap-4">
 			<Button href="/docs/get-started">
@@ -35,7 +35,7 @@ const pages = site.menus.main[1].children;
 		</div>
 	</Hero>
 	<Section collapseTop>
-		<h1 class="text-center font-extrabold">Components & Patterns</h1>
+		<h1 class="text-center font-extrabold">Patterns</h1>
 		<ul
 			role="list"
 			class="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8"
