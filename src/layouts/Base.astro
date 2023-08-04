@@ -5,11 +5,20 @@ import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import WIPCallout from '@components/WIPCallout.astro';
 
+interface Props {
+	title?: string;
+	canonical?: string;
+	description?: string;
+	class?: string;
+	withCompanyName?: boolean;
+}
+
 const {
 	title = 'New Page',
 	canonical = null,
 	description = null,
 	class: className,
+	withCompanyName = true,
 } = Astro.props;
 ---
 
@@ -27,7 +36,7 @@ const {
 			)
 		}
 
-		<title>{title}</title>
+		<title>{title}{withCompanyName && ` | ${site.name}`}</title>
 		{description && <meta name="description" content={description} />}
 		{canonical && <link rel="canonical" href={canonical} />}
 
