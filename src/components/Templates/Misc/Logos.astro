@@ -1,0 +1,31 @@
+---
+import { twMerge as tw } from 'tailwind-merge';
+
+interface Props {
+	class?: string;
+	logos: { src: string; alt: string }[];
+	size?: 'sm' | 'md' | 'lg' | 'xl';
+}
+
+const { class: className, logos, size = 'md' } = Astro.props;
+
+const sizes = {
+	sm: 'h-12',
+	md: 'h-16',
+	lg: 'h-24',
+	xl: 'h-32',
+};
+---
+
+<div class={tw('flex flex-wrap gap-6 items-center', sizes[size], className)}>
+	{
+		logos.map(({ src, alt }) => (
+			<img src={src} alt={alt} class="w-auto h-12" loading="lazy" />
+		))
+	}
+</div>
+
+<!-- /*
+Usage:
+<Logos class="justify-center" size="lg" logos={[ { src: '/path/to/logo.png', alt: 'Company Name' } ]} />
+*/ -->

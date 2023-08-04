@@ -1,6 +1,31 @@
 ---
 import { twMerge as tw } from 'tailwind-merge';
-const { as = 'div', class: className, direction = 'vertical', space = 'none', wrap = false } = Astro.props;
+
+interface Props {
+	as?: string;
+	class?: string;
+	direction?: 'vertical' | 'horizontal';
+	space?:
+		| 'none'
+		| 'xs'
+		| 'sm'
+		| 'md'
+		| 'lg'
+		| 'xl'
+		| '2xl'
+		| '3xl'
+		| '4xl'
+		| '5xl';
+	wrap?: boolean;
+}
+
+const {
+	as = 'div',
+	class: className,
+	direction = 'vertical',
+	space = 'md',
+	wrap = false,
+} = Astro.props;
 const TagName = as;
 
 const spacing = {
@@ -35,7 +60,7 @@ const spacing = {
 	class={tw(
 		direction === 'vertical' && 'flow',
 		direction === 'horizontal' && 'flex',
-		wrap && 'flex-wrap',
+		direction === 'horizontal' && wrap && 'flex-wrap',
 		spacing[direction][space],
 		className
 	)}

@@ -1,15 +1,119 @@
 ---
+import { readFile } from 'fs/promises';
+import { Code } from 'astro/components';
+
 import Container from '@components/Container.astro';
-import Flow from '@components/Flow.astro';
+import Icon from '@components/Icon.astro';
 import Tag from '@components/Tag.astro';
 
-const { title, tag = 'Pattern' } = Astro.props;
+interface Props {
+	title: string;
+	tag?: string;
+	component?: string;
+	docs?: string;
+	withContainer?: boolean;
+	context?: string;
+}
+
+const {
+	title,
+	tag = 'Preview',
+	component,
+	docs,
+	withContainer = false,
+	context = 'default'
+} = Astro.props;
+
+async function getComponentCode(component) {
+	return await readFile(`./src/components/${component}`, 'utf-8');
+}
+
+let code = null;
+if (component) {
+	code = await getComponentCode(component);
+}
 ---
 
-<Flow class="border rounded-xl px-8 py-6 mx-8">
-	<Container as="h2" class="font-normal text-lg">
-		<Tag text={tag} class="mr-4" />
-		{title}
-	</Container>
-	<slot />
-</Flow>
+<div x-cloak x-data="{ activeTab: 'preview' }">
+	<div class="bg-white border rounded-xl overflow-hidden" class:list={[{ 'mx-8': context !== 'docs' }]}>
+		<header class="border-b border-dashed py-4">
+			<Container class="flex items-center gap-8 justify-between">
+				<div class="flex items-center gap-2">
+					<Tag text={tag} class="mr-4" />
+					<h2 class="font-normal text-sm text-gray-600">{title}</h2>
+				</div>
+				{component && (
+					<ul class="flex items-center gap-3">
+						<li class="flex items-center">
+							<button
+								@click="activeTab = 'preview'"
+								type="button"
+								class="uppercase text-base font-bold"
+								:class="{ 'text-blue-500': activeTab === 'preview', 'text-gray-400': activeTab !== 'preview' }"
+							>
+								<Icon name="eye" class="w-4 h-4" />
+								<span class="sr-only">Preview</span>
+							</button>
+						</li>
+						<li class="flex items-center">
+							<button
+								@click="activeTab = 'code'"
+								type="button"
+								class="uppercase text-sm font-bold"
+								:class="{ 'text-blue-500': activeTab === 'code', 'text-gray-400': activeTab !== 'code' }"
+							>
+								<Icon name="code" class="w-4 h-4" />
+								<span class="sr-only">Code</span>
+							</button>
+						</li>
+						{context !== 'docs' && docs && (
+						<li class="flex items-center">
+							<a
+								href={docs}
+								class="text-gray-400 uppercase text-sm font-bold"
+							>
+								<Icon name="info" class="w-4 h-4" />
+								<span class="sr-only">Documentation</span>
+							</a>
+						</li>
+						)}
+					</ul>
+				)}
+			</Container>
+		</header>
+		{
+			component && (
+				<div class="group relative" x-show="activeTab === 'code'" style="display: none">
+					<Code code={code} lang="astro" theme="github-light" />
+					<textarea x-ref="code" class="absolute top-0 right-0 opacity-0">{code}</textarea>
+					<button class="hidden border rounded-lg p-1.5 items-center justify-center absolute top-6 right-6 text-gray-400 hover:text-blue-600 hover:border-gray-300 group-hover:flex" @click="window.navigator.clipboard.writeText($refs.code.value)" type="button">
+						<Icon name="copy" class="fill-current w-4 h-4" />
+					</button>
+				</div>
+			)
+		}
+		<div x-show="activeTab === 'preview'">
+			{
+				withContainer && (
+					<Container class="py-4">
+						<slot />
+					</Container>
+				)
+			}
+			{
+				!withContainer && (
+					<div>
+						<slot />
+					</div>
+				)
+			}
+		</div>
+	</div>
+</div>
+
+<style is:global>
+	.astro-code {
+		padding: 1.5rem;
+		font-size: .8em;
+	}
+</style>

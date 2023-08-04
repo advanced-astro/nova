@@ -1,0 +1,15 @@
+---
+import Carousel from '@components/Carousel.astro';
+import CarouselSlide from '@components/CarouselSlide.astro';
+import CenteredTextOnly from './CenteredTextOnly.astro';
+import LeftAlignedWithImage from './LeftAlignedWithImage.astro';
+---
+
+<Carousel withArrows>
+	<CarouselSlide>
+		<CenteredTextOnly />
+	</CarouselSlide>
+	<CarouselSlide>
+		<LeftAlignedWithImage />
+	</CarouselSlide>
+</Carousel>

@@ -1,0 +1,49 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Lightbox
+type: Component
+category: Images
+isIncludedWithStarterKit: true
+---
+
+import { Code } from 'astro/components';
+import PatternDemo from '@components/PatternDemo.astro';
+import Lightbox from '@components/Lightbox.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="Lightbox"
+		context="docs"
+		component="Lightbox.astro"
+		withContainer
+	>
+		<Lightbox images={[{ src: 'https://unsplash.it/1280/720?random=1' }]} />
+	</PatternDemo>
+</div>
+
+### Astro Component
+
+This component is included with the Astro Starter Kit.
+
+### Usage
+
+In another component or page, import the component and use it.
+
+```jsx
+---
+import Lightbox from '@components/Lightbox.astro';
+---
+
+<Lightbox
+	class="grid grid-cols-2 md:grid-cols-4 gap-6"
+	name="gallery"
+	images={[
+		{ src: 'https://unsplash.it/1080?random=1' },
+		{ src: 'https://unsplash.it/1080?random=2' },
+		{ src: 'https://unsplash.it/1080?random=3' },
+		{ src: 'https://unsplash.it/1080?random=4' },
+	]}
+/>
+```
+
+The class prop is optional, use this to style groups of images like a gallery. The name prop is also optional, but if you have more than one Lightbox or Gallery on a page, specify a unique name to ensure each Lightbox displays the correct images.

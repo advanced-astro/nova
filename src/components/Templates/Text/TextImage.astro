@@ -1,0 +1,39 @@
+---
+import { twMerge as tw } from 'tailwind-merge';
+
+interface Props {
+	class?: string;
+	flip?: boolean;
+}
+
+const { class: className, flip = false } = Astro.props;
+---
+
+<div class={tw('grid gap-8 md:grid-cols-2', className)}>
+	<div class:list={[{ 'md:col-start-2 md:row-start-1': flip }]}>
+		<slot />
+	</div>
+	<div class:list={[{ 'md:col-start-1 md:row-start-1': flip }]}>
+		<slot name="image" />
+	</div>
+</div>
+
+<!-- /*
+Usage:
+<TextImage class="items-center" flip>
+	<img
+		src="https://unsplash.it/800/600"
+		alt="Placeholder image"
+		slot="image"
+	/>
+	<Flow>
+		<h2>Text & Image</h2>
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit.
+			Inventore, fuga. Consequuntur quo doloribus magnam
+			quidem obcaecati, placeat, rem vero dolores vel autem
+			necessitatibus unde natus vitae laborum, officia at! A!
+		</p>
+	</Flow>
+</TextImage>
+*/ -->

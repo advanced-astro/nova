@@ -1,0 +1,42 @@
+---
+import Base from './Base.astro';
+import Icon from '@components/Icon.astro';
+import Flow from '@components/Flow.astro';
+import Section from '@components/Section.astro';
+import Tag from '@components/Tag.astro';
+const { frontmatter } = Astro.props;
+---
+
+<Base title={frontmatter.title}>
+	<Section>
+		<div class="prose max-w-3xl mx-auto">
+			<Flow as="header" space="sm" class="not-prose pb-12">
+				<h1 class="tracking-tight font-extrabold">
+					{frontmatter.title}
+				</h1>
+				<div class="flex flex-wrap gap-3 items-center">
+					{frontmatter?.type && <Tag text={frontmatter.type} />}
+					{
+						frontmatter?.category && (
+							<Tag text={frontmatter.category} variant="blue" />
+						)
+					}
+					{
+						frontmatter?.isIncludedInStarterKit && (
+							<div class="flex items-center gap-1">
+								<Icon
+									name="check"
+									class="text-green-500 fill-current"
+								/>
+								<p class="text-xs text-gray-500 leading-none tracking-tight">
+									Included with Starter Kit
+								</p>
+							</div>
+						)
+					}
+				</div>
+			</Flow>
+			<slot />
+		</div>
+	</Section>
+</Base>

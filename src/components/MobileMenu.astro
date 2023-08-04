@@ -1,6 +1,11 @@
 ---
 import site from '@src/site.js';
 
+interface Props {
+	name?: string;
+	showPhoneNumber?: boolean;
+}
+
 const { name = 'main', showPhoneNumber = false } = Astro.props;
 const menu = site.menus[name];
 ---

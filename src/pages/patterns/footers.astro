@@ -1,0 +1,32 @@
+---
+import Base from '@layouts/Base.astro';
+import Flow from '@components/Flow.astro';
+import PatternDemo from '@components/PatternDemo.astro';
+
+import CenteredSimple from '@components/Templates/Footers/CenteredSimple.astro';
+import CenteredSimpleDark from '@components/Templates/Footers/CenteredSimpleDark.astro';
+import InformationWithSocialLinks from '@components/Templates/Footers/InformationWithSocialLinks.astro';
+---
+
+<Base title="Patterns / Text" class="bg-gray-100">
+	<Flow space="lg">
+		<PatternDemo
+			title="Centered Simple"
+			component="Templates/Footers/CenteredSimple.astro"
+		>
+			<CenteredSimple />
+		</PatternDemo>
+		<PatternDemo
+			title="Centered Simple (Dark)"
+			component="Templates/Footers/CenteredSimpleDark.astro"
+		>
+			<CenteredSimpleDark />
+		</PatternDemo>
+		<PatternDemo
+			title="Information with Social Links"
+			component="Templates/Footers/InformationWithSocialLinks.astro"
+		>
+			<InformationWithSocialLinks />
+		</PatternDemo>
+	</Flow>
+</Base>

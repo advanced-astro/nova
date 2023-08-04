@@ -1,0 +1,84 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Flow
+type: Component
+category: UI
+isIncludedInStarterKit: true
+---
+
+import PatternDemo from '@components/PatternDemo.astro';
+import Flow from '@components/Flow.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="Flow"
+		context="docs"
+		component="Flow.astro"
+		withContainer
+	>
+		<Flow space="sm">
+			<h2>Sale Now On!</h2>
+			<p>
+				Get our <strong>How to eat donuts</strong> course for just
+				£5.99!
+			</p>
+		</Flow>
+	</PatternDemo>
+</div>
+
+This component is available with our Astro Starter Kit.
+
+The Flow component can be used to manage the spacing between elements. By default, it's a vertical flow but you can also manage horizontal flow content.
+
+## Usage
+
+Import the component where you need to use it:
+
+```astro
+---
+import Flow from '@components/Flow.astro';
+---
+
+<Flow>
+	<h1>Title</h1>
+	<p>Content</p>
+</Flow>
+```
+
+### Space
+
+You can control the space between items using the `space` prop, like this:
+
+```jsx
+<Flow space="sm"></Flow>
+```
+
+Valid space values are: `none`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl` and `5xl`.
+
+### Direction
+
+You can also control the direction of the flow using the `direction` prop, like this:
+
+```jsx
+<Flow space="lg" direction="horizontal">
+	<p>This content flows horizontally.</p>
+	<p>Lovely.</p>
+</Flow>
+```
+
+By default, horizontal content will not wrap. You can enable wrapping using the `wrap` prop, like this:
+
+```jsx
+<Flow space="lg" direction="horizontal" wrap>
+	<p>This content flows horizontally.</p>
+	<p>It will wrap if the space available gets too small.</p>
+</Flow>
+```
+
+### Element
+
+By default, the Flow component will render a `<div>` element. You can change this using the `as` prop, like this:
+
+```jsx
+<Flow as="article"></Flow>
+```

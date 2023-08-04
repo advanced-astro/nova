@@ -1,0 +1,57 @@
+---
+import Flow from '@components/Flow.astro';
+import Button from '@components/Button.astro';
+
+interface Props {
+	title: string;
+	image: string;
+	excerpt?: string;
+	href: string;
+	buttonLabel?: string;
+	showButton?: boolean;
+}
+
+const {
+	title,
+	image,
+	excerpt,
+	href,
+	buttonLabel = 'Read More',
+	showButton = false,
+} = Astro.props;
+---
+
+<article
+	class="grid gap-6 relative md:items-center md:gap-8 md:grid-cols-[30%_1fr]"
+>
+	<img class="rounded-lg" src={image} alt="" loading="lazy" />
+	<Flow space="sm">
+		<h2>
+			<a
+				class="text-gray-900 static no-underline before:absolute before:inset-0 before:block"
+				href={href}
+			>
+				{title}
+			</a>
+		</h2>
+		{excerpt && <p>{excerpt}</p>}
+		{
+			showButton && (
+				<Button href={href} size="sm">
+					{buttonLabel}
+				</Button>
+			)
+		}
+	</Flow>
+</article>
+
+<!--
+Usage:
+<PostPreview
+	image="/path/to/image.png"
+	title="Post title"
+	excerpt="Post excerpt"
+	href="/path/to/post"
+	showButton
+/>
+-->

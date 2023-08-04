@@ -1,4 +1,9 @@
 ---
+interface Props {
+	class?: string;
+	email: string;
+}
+
 const { class: className, email } = Astro.props;
 ---
 
@@ -19,7 +24,11 @@ const { class: className, email } = Astro.props;
 		if (emailAddressElements) {
 			emailAddressElements.forEach((item) => {
 				item.addEventListener('copy', (event) => {
-					let unreversedEmail = document.getSelection().baseNode.data.split('').reverse().join('');
+					let unreversedEmail = document
+						.getSelection()
+						.baseNode.data.split('')
+						.reverse()
+						.join('');
 					event.clipboardData.setData('text/plain', unreversedEmail);
 					event.preventDefault();
 				});

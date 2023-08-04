@@ -1,0 +1,20 @@
+---
+import Container from '@components/Container.astro';
+import Logo from '@components/Logo.astro';
+import Menu from '@components/Menu.astro';
+import MobileMenu from '@components/MobileMenu.astro';
+---
+
+<Container
+	as="header"
+	class="flex items-center justify-between gap-8 py-6 relative z-50"
+>
+	<Logo />
+	<Menu name="demo" />
+	<MobileMenu name="demo" showPhoneNumber />
+</Container>
+
+<!-- /*
+Usage:
+<Header />
+*/ -->

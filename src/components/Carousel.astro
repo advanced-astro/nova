@@ -2,6 +2,21 @@
 import '@src/scripts/scooch/scooch.css';
 import Icon from './Icon.astro';
 
+interface Props {
+	withArrows?: boolean;
+	withDots?: boolean;
+	id?: string;
+	options?: {
+		autoplay?: boolean;
+		autoplayInterval?: number;
+		keyboardControls?: boolean;
+		allowFullscreen?: boolean;
+		scrollToChange?: boolean;
+		swipeToChange?: boolean;
+	};
+	class?: string;
+}
+
 const {
 	withArrows = false,
 	withDots = false,
@@ -20,27 +35,34 @@ const options = {
 const carouselId = id || `carousel-${Math.floor(Math.random() * Date.now())}`;
 ---
 
-<div id={carouselId} class:list={['carousel', className]}>
+<div id={carouselId} class:list={['carousel relative', className]}>
 	<div class="scooch">
 		<slot />
 	</div>
 	{
 		withArrows && (
 			<div data-arrows class="carousel__arrows">
-				<button data-next>
-					<Icon name="caret-left" />
-					<span class="sr-only">Previous Slide</span>
-				</button>
-				<button data-prev>
-					<Icon name="caret-right" />
-					<span class="sr-only">Next Slide</span>
-				</button>
+				<div class="absolute top-0 left-0 z-10 h-full flex items-center px-4">
+					<button data-next>
+						<Icon name="caret-left" class="w-6 h-6" />
+						<span class="sr-only">Previous Slide</span>
+					</button>
+				</div>
+				<div class="absolute top-0 right-0 z-10 h-full flex items-center px-4">
+					<button data-prev>
+						<Icon name="caret-right" class="w-6 h-6" />
+						<span class="sr-only">Next Slide</span>
+					</button>
+				</div>
 			</div>
 		)
 	}
 	{
 		withDots && (
-			<div data-dots class="carousel__dots flex items-center gap-2" />
+			<div
+				data-dots
+				class="carousel__dots absolute bottom-6 left-0 w-full flex items-center justify-center gap-2"
+			/>
 		)
 	}
 </div>

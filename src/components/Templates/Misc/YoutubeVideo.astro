@@ -1,0 +1,41 @@
+---
+interface Props {
+	id: string;
+	controls?: boolean;
+	start?: number;
+	end?: number;
+	modestBranding?: boolean;
+	autoplay?: boolean;
+}
+
+const {
+	id,
+	controls = true,
+	start = 0,
+	end = null,
+	modestBranding = 2,
+	autoplay = true,
+} = Astro.props;
+
+const params = {
+	controls,
+	start,
+	end: end || '',
+	modestbranding: modestBranding,
+	autoplay,
+};
+---
+
+<link
+	rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.2.0/lite-yt-embed.css"
+/>
+
+<div class="rounded-sm overflow-hidden">
+	<lite-youtube videoId={id} params={new URLSearchParams(params).toString()}
+	></lite-youtube>
+</div>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/lite-youtube-embed/0.2.0/lite-yt-embed.js"
+></script>

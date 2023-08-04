@@ -1,0 +1,38 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Email Address
+type: Component
+category: UI
+isIncludedInStarterKit: true
+---
+
+import { Code } from 'astro/components';
+import PatternDemo from '@components/PatternDemo.astro';
+import EmailAddress from '@components/EmailAddress.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="Email Address"
+		context="docs"
+		component="EmailAddress.astro"
+		withContainer
+	>
+		<div class="text-center p-8">
+			<EmailAddress email="hello@example.com" />
+		</div>
+	</PatternDemo>
+</div>
+
+This component is available with our Astro Starter Kit. It's a utility component that helps prevent spam. It'll reverse the email address in the source and display it correctly using CSS. It also handles copying by unreversing the text on copy.
+
+### Usage
+
+Import the component on the page or component you need, like this:
+
+```jsx
+---
+import EmailAddress from '@components/EmailAddress.astro';
+---
+
+<EmailAddress email="hello@example.com" />
+```

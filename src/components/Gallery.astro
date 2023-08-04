@@ -2,6 +2,15 @@
 import { twMerge as tw } from 'tailwind-merge';
 import Lightbox from '@components/Lightbox.astro';
 
+interface Props {
+	class?: string;
+	images: {
+		src: string;
+		alt: string;
+	}[];
+	imageClass?: string;
+}
+
 const { class: className, images, imageClass: imageClassName } = Astro.props;
 ---
 

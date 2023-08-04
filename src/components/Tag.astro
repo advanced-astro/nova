@@ -1,5 +1,12 @@
 ---
 import { twMerge as tw } from 'tailwind-merge';
+
+interface Props {
+	class?: string;
+	text: string;
+	variant?: 'green' | 'red' | 'blue' | 'yellow';
+}
+
 const { class: className, text, variant = 'green' } = Astro.props;
 
 const variants = {

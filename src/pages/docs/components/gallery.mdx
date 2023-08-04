@@ -1,0 +1,33 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Gallery
+type: Component
+category: Images
+isIncludedInStarterKit: true
+---
+
+### Astro Component
+
+This component is included with the Astro Starter Kit.
+
+### Usage
+
+You can import the component where you need and use it like this:
+
+```jsx
+---
+import Gallery from '@components/Gallery.astro';
+---
+
+<Gallery
+	name="gallery"
+	images={[
+		{ src: 'https://unsplash.it/1080?random=1' },
+		{ src: 'https://unsplash.it/1080?random=2' },
+		{ src: 'https://unsplash.it/1080?random=3' },
+		{ src: 'https://unsplash.it/1080?random=4' },
+	]}
+/>
+```
+
+If you only have 1 gallery on a page, the `name` property is optional. For pages with multiple galleries, make sure each one has a unique name so the Lightbox only includes images from the correct gallery.

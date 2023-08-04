@@ -1,0 +1,31 @@
+---
+import site from '@src/site.js';
+import Container from '@components/Container.astro';
+import Logo from '@components/Logo.astro';
+import Menu from '@components/Menu.astro';
+import MobileMenu from '@components/MobileMenu.astro';
+import Icon from '@components/Icon.astro';
+---
+
+<Container
+	as="header"
+	class="flex items-center justify-between gap-8 py-6 relative z-50"
+>
+	<Logo />
+	<div class="flex items-center gap-8">
+		<Menu name="demo" />
+		<a
+			class="flex items-center gap-2 no-underline text-lg weight-bold"
+			href={`tel:${site.phone}`}
+		>
+			<Icon name="phone" class="w-7 h-7" />
+			{site.phone}
+		</a>
+		<MobileMenu name="demo" showPhoneNumber />
+	</div>
+</Container>
+
+<!-- /*
+Usage:
+<Header />
+*/ -->

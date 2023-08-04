@@ -1,44 +1,56 @@
 ---
-import util from '@src/util.js';
+import site from '@src/site.js';
 
 import Base from '@layouts/Base.astro';
-import Container from '@components/Container.astro';
+import Section from '@components/Section.astro';
+import PatternLinkCard from '@components/PatternLinkCard.astro';
+import Hero from '@components/Hero.astro';
+import Button from '@components/Button.astro';
+import Icon from '@components/Icon.astro';
+
+const pages = site.menus.main[1].children;
 ---
 
 <Base title="Home">
-	<Container>
-		<!-- delete -->
-		<main class="flow flow-space-3 text-center px-8 py-20">
-			<h1>{util.greeting}</h1>
-			<p class="text-gray-7-0">
-				Don't forget to update your project info in
-				<a href={`vscode://file/${util.cwd}/src/site.js`}>
-					<code
-						class="bg-gray-100 text-blue-600 text-sm inline-block px-2 py-1 rounded-lg"
-					>
-						src/site.js
-					</code>
-				</a>
-			</p>
-			<nav class="flow flow-space-2 mt-12">
-				<h2 class="h4">Resources</h2>
-				<ul class="flex flex-wrap items-center justify-center gap-6">
-					<li>
-						<a
-							href="https://resknow.notion.site/8ade470905054217af04ef7ef7ff0289?v=4d3bea11bfd04664a5581f540de3ec11"
-						>
-							Components & Patterns
-						</a>
-					</li>
-					<li>
-						<a href="https://tailwindcss.com">Tailwind CSS</a>
-					</li>
-					<li>
-						<a href="https://astro.build">Astro</a>
-					</li>
-				</ul>
-			</nav>
-		</main>
-		<!-- end delete -->
-	</Container>
+	<Hero
+		title="Bolt"
+		description="Bolt is our component library for Astro, focused on building brochure and marketing websites."
+	>
+		<div class="flex flex-wrap items-center justify-center gap-4">
+			<Button href="/docs/get-started">
+				Get Started
+				<Icon
+					name="arrow-right"
+					class="text-white w-5 h-5"
+					slot="end"
+				/>
+			</Button>
+			<Button
+				href="https://github.com/resknow/astro-starter-kit"
+				variant="secondary"
+			>
+				Astro Starter Kit
+				<Icon name="github" class="w-5 h-5" slot="start" />
+			</Button>
+		</div>
+	</Hero>
+	<Section collapseTop>
+		<h1 class="text-center font-extrabold">Components & Patterns</h1>
+		<ul
+			role="list"
+			class="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8"
+		>
+			{
+				pages.map(({ href, label, icon }) => {
+					return (
+						<PatternLinkCard
+							href={href}
+							title={label}
+							icon={icon}
+						/>
+					);
+				})
+			}
+		</ul>
+	</Section>
 </Base>

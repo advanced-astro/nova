@@ -2,13 +2,15 @@
 const { image, title, date, href } = Astro.props;
 ---
 
-<article class="group relative grid items-end overflow-hidden rounded-xl">
+<article
+	class="group relative grid w-full aspect-video items-end overflow-hidden rounded-xl"
+>
 	<img
-		class="col-start-1 col-span-1 row-start-1 row-span-1 z-10 transition duration-500 group-hover:scale-105"
+		class="block object-cover object-center w-full aspect-video col-start-1 col-span-1 row-start-1 row-span-1 z-10 transition duration-500 group-hover:scale-105"
 		src={image}
 		alt=""
-		width="800"
-		height="600"
+		width="720"
+		height="480"
 	/>
 	<div
 		class="bg-gradient-to-b from-black/0 to-black/70 px-8 pt-20 pb-6 col-start-1 col-span-1 row-start-1 row-span-1 z-20"

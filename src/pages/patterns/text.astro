@@ -1,0 +1,34 @@
+---
+import Base from '@layouts/Base.astro';
+import Flow from '@components/Flow.astro';
+import PatternDemo from '@components/PatternDemo.astro';
+
+import TextImage from '@components/Templates/Text/TextImage.astro';
+---
+
+<Base title="Patterns / Text" class="bg-gray-100">
+	<Flow space="lg">
+		<PatternDemo
+			title="Text & Image"
+			component="Templates/Text/TextImage.astro"
+			withContainer
+		>
+			<TextImage class="items-center" flip>
+				<img
+					src="https://unsplash.it/800/600"
+					alt="Placeholder image"
+					slot="image"
+				/>
+				<Flow>
+					<h2>Text & Image</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Inventore, fuga. Consequuntur quo doloribus magnam
+						quidem obcaecati, placeat, rem vero dolores vel autem
+						necessitatibus unde natus vitae laborum, officia at! A!
+					</p>
+				</Flow>
+			</TextImage>
+		</PatternDemo>
+	</Flow>
+</Base>

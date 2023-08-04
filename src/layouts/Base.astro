@@ -3,12 +3,13 @@ import '@styles/global.css';
 import site from '@src/site.js';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
+import WIPCallout from '@components/WIPCallout.astro';
 
 const {
 	title = 'New Page',
 	canonical = null,
 	description = null,
-	bodyClass,
+	class: className,
 } = Astro.props;
 ---
 
@@ -38,8 +39,9 @@ const {
 
 		<slot name="head" />
 	</head>
-	<body class:list={bodyClass}>
+	<body class:list={className}>
 		<slot name="body-open" />
+		<WIPCallout />
 		<Header />
 		<slot />
 		<Footer />

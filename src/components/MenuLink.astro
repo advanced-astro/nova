@@ -1,6 +1,18 @@
 ---
+interface Props {
+	class?: string;
+	children?: Array<{
+		href: string;
+		label: string;
+	}>;
+	key: number;
+	url: string;
+	label: string;
+}
+
 const { class: className, children = null, key, url, label } = Astro.props;
-const linkClass = 'text-sm text-gray-500 font-bold no-underline uppercase hover:text-gray-900';
+const linkClass =
+	'text-sm text-gray-500 font-bold no-underline uppercase hover:text-gray-900';
 ---
 
 {
@@ -14,7 +26,12 @@ const linkClass = 'text-sm text-gray-500 font-bold no-underline uppercase hover:
 				{children.map((child) => {
 					return (
 						<li>
-							<a href={child.href}>{child.label}</a>
+							<a
+								class="text-sm font-bold text-gray-900 no-underline"
+								href={child.href}
+							>
+								{child.label}
+							</a>
 						</li>
 					);
 				})}

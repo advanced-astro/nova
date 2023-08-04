@@ -1,8 +1,14 @@
 ---
 import Button from '@components/Button.astro';
+import Icon from '@components/Icon.astro';
 import TextInput from '@components/Form/TextInput.astro';
 import TextAreaInput from '@components/Form/TextAreaInput.astro';
 import SelectInput from '@components/Form/SelectInput.astro';
+
+interface Props {
+	id: string;
+	recaptcha?: boolean;
+}
 
 const { id, recaptcha = false } = Astro.props;
 ---
@@ -15,7 +21,10 @@ const { id, recaptcha = false } = Astro.props;
 	<TextAreaInput name="message" label="Message" />
 	<slot name="before-actions" />
 	<div class="flow flow-space-2">
-		<Button type="submit">Send</Button>
+		<Button type="submit">
+			Send
+			<Icon class="fill-current w-5 h-5" name="send" slot="end" />
+		</Button>
 	</div>
 	<slot name="end" />
 </form>

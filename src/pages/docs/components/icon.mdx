@@ -1,0 +1,51 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Icon
+type: Component
+category: Elements
+isIncludedInStarterKit: true
+---
+
+import { Code } from 'astro/components';
+import PatternDemo from '@components/PatternDemo.astro';
+import Icon from '@components/Icon.astro';
+import IconsDemo from '@components/IconsDemo.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="Icon"
+		context="docs"
+		component="Icon.astro"
+		withContainer
+	>
+		<IconsDemo />
+	</PatternDemo>
+</div>
+
+This component is available with the Astro Starter Kit.
+
+### Supported Icons
+
+This component pulls icons from the `src/icons` directory. To add more, simply add your icons as individual SVG files to this directory.
+
+### Usage
+
+Import the component where you need it. From there, you can pass in the filename (without the extension) of the icon you want to use, like this:
+
+```html
+---
+import Icon from '@components/Icon.astro';
+---
+
+<Icon name="arrow-right" />
+```
+
+### Styling
+
+By default, icons are set to be `1em` width and height. For one off changes, you can add a class to the icon.
+
+```html
+<Icon name="arrow-right" class="w-auto h-6" />
+```
+
+If you want to update the global default, see the component code below. You can update the styles set in the `<style>` block.

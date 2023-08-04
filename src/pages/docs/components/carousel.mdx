@@ -1,0 +1,60 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Carousel
+type: Component
+category: Heros
+isIncludedInStarterKit: true
+---
+
+import { Code } from 'astro/components';
+import PatternDemo from '@components/PatternDemo.astro';
+import Carousel from '@components/Carousel.astro';
+import CarouselSlide from '@components/CarouselSlide.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="Lightbox"
+		context="docs"
+		component="Carousel.astro"
+		withContainer
+	>
+		<Carousel>
+			<CarouselSlide>
+				<p class="text-lg text-center p-8">Slide 1</p>
+			</CarouselSlide>
+			<CarouselSlide>
+				<p class="text-lg text-center p-8">Slide 2</p>
+			</CarouselSlide>
+		</Carousel>
+	</PatternDemo>
+</div>
+
+This component is included with the Astro Starter Kit.
+
+## Usage
+
+Import both the `Carousel` and `CarouselSlide` components where you want to use them.
+
+```jsx
+import Carousel from '@components/Carousel.astro';
+import CarouselSlide from '@components/CarouselSlide.astro';
+```
+
+You can then use the `Carousel` component with `CarouselSlide` components as children.
+
+```astro
+<Carousel withArrows withDots>
+	<CarouselSlide>...</CarouselSlide>
+	<CarouselSlide>...</CarouselSlide>
+</Carousel>
+```
+
+The carousel accepts `withArrows` or `withDots` props, both are optional.
+
+### Scooch Options
+
+The Carousel uses Scooch to power the carousel. You can pass options to Scooch using the `options` prop and passing an object of Scooch options.
+
+```jsx
+<Carousel options={{ autoplay: false, keyboardControls: false }}></Carousel>
+```

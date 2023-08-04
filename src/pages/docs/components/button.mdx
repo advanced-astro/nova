@@ -1,0 +1,119 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Button
+type: Component
+category: UI
+isIncludedInStarterKit: true
+---
+
+import { Code } from 'astro/components';
+import PatternDemo from '@components/PatternDemo.astro';
+import Icon from '@components/Icon.astro';
+import Button from '@components/Button.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="Button"
+		context="docs"
+		component="Button.astro"
+		withContainer
+	>
+		<div class="flex items-center justify-center gap-6 p-8">
+			<Button type="submit">
+				<Icon class="w-6 h-6" name="arrow-right" slot="end" />
+				Send
+			</Button>
+			<Button type="reset" variant="secondary">
+				<Icon class="w-6 h-6" name="close" slot="start" />
+				Cancel
+			</Button>
+			<Button href="#" variant="text">
+				More information
+			</Button>
+		</div>
+	</PatternDemo>
+</div>
+
+This component is available with our Astro Starter Kit.
+
+### Usage
+
+Import the component on the page or component you need, like this:
+
+```jsx
+---
+import Button from '@components/Button.astro';
+---
+```
+
+If you pass an `href` prop, buttons are rendered as links. Otherwise, they are rendered as a `button` element.
+
+### Link Button
+
+```jsx
+<Button href="/contact/">Contact Us</Button>
+```
+
+### Button
+
+```jsx
+<Button type="button" x-on:click="isOpen = true">
+	Open Menu
+</Button>
+```
+
+### Submit Button
+
+```jsx
+<Button type="submit">Send</Button>
+```
+
+### Reset Button
+
+```jsx
+<Button type="reset" variant="secondary">
+	Cancel
+</Button>
+```
+
+### Available Props
+
+`variant`
+
+This sets the visual style of the button, usually the colours. By default, `primary` and `secondary` are valid options, with `primary` being implied if you don't specify.
+
+`size`
+
+This sets the size of the button. By default, `sm`, `md` and `lg` are valid options, with `md` being implied if you don't specify.
+
+`href`
+
+Sets the `href` attribute on a link. Setting this will cause the button to render as a link.
+
+`type`
+
+The button type. Valid HTML button types are valid here. (`button`, `submit`, `reset`)
+
+### Icon
+
+You can pass in an icon in one of 2 available slots. These are `start` and `end`. For example:
+
+```jsx
+<Button href="/contact/">
+	Get Started
+	<Icon name="arrow-right" slot="end" />
+</Button>
+```
+
+Notice the `slot` prop on the `Icon`. This tells the Button to place the icon after the text.
+
+```jsx
+<Button href="/contact/">
+	Get Started
+	<Icon name="arrow-right" slot="start" />
+</Button>
+```
+
+In this example, we tell the Button to place the icon before the text, at the `start`. It doesn't matter where the icon is, so you can move it before the text if you prefer.
+
+These examples use the [Icon component](/docs/components/icon). This isn't required but makes life easier when dealing with SVG icons.

@@ -3,15 +3,21 @@ import Container from '@components/Container.astro';
 import Logo from '@components/Logo.astro';
 import Menu from '@components/Menu.astro';
 import MobileMenu from '@components/MobileMenu.astro';
+import SocialLinks from '@components/SocialLinks.astro';
 ---
 
 <Container
 	as="header"
 	class="flex items-center justify-between gap-8 py-6 relative z-50"
 >
-	<Logo />
-	<Menu />
-	<MobileMenu showPhoneNumber />
+	<Logo withAttribution />
+	<div class="flex items-center gap-5">
+		<Menu />
+		<div class="flex items-center gap-4">
+			<SocialLinks only={['github']} />
+			<MobileMenu showPhoneNumber />
+		</div>
+	</div>
 </Container>
 
 <style>

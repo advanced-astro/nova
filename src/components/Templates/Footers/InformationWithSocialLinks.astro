@@ -1,0 +1,38 @@
+---
+import site from '@src/site.js';
+import util from '@src/util.js';
+import Logo from '@components/Logo.astro';
+import Flow from '@components/Flow.astro';
+import Section from '@components/Section.astro';
+import SocialLinks from '@components/SocialLinks.astro';
+---
+
+<Section as="footer" class="text-xs py-12" collapse>
+	<div class="grid gap-8 items-start md:grid-cols-2">
+		<Flow space="md">
+			<Logo />
+			<p class="text-gray-600 max-w-lg">
+				Nullam congue velit eu fringilla fringilla. Etiam nisl eros,
+				viverra ut nisl sit amet, mattis maximus ante. Vestibulum
+				ullamcorper ligula quam, eget blandit sapien egestas eget.
+			</p>
+			<p class="text-gray-400 pt-4">
+				Copyright &copy; {util.currentYear}
+				{site.name}
+			</p>
+			<p class="flex items-center gap-3">
+				<img
+					src="https://assets.resknow.co.uk/branding/resknow/r-48x48.png"
+					width="28"
+					height="28"
+					alt=""
+					loading="lazy"
+				/>
+				<a href="https://www.resknow.co.uk" rel="nofollow"
+					>Web Design by Resknow</a
+				>
+			</p>
+		</Flow>
+		<SocialLinks variant="circle" class="justify-end" />
+	</div>
+</Section>

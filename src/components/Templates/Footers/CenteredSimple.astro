@@ -1,0 +1,30 @@
+---
+import site from '@src/site.js';
+import util from '@src/util.js';
+import Logo from '@components/Logo.astro';
+import Flow from '@components/Flow.astro';
+import Section from '@components/Section.astro';
+---
+
+<Section as="footer" class="py-12" collapse>
+	<Flow
+		class="flex flex-col items-center text-center text-sm text-gray-500"
+		space="lg"
+	>
+		<Logo />
+		<Flow space="sm">
+			<p>Copyright &copy; {util.currentYear} {site.name}</p>
+			<nav>
+				<ul class="flex items-center divide-x" role="list">
+					<li>
+						<a class="px-4" href="/privacy-policy">Privacy Policy</a
+						>
+					</li>
+					<li>
+						<a class="px-4" href="/contact">Contact Us</a>
+					</li>
+				</ul>
+			</nav>
+		</Flow>
+	</Flow>
+</Section>

@@ -1,0 +1,39 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Section
+type: Component
+category: UI
+isIncludedInStarterKit: true
+---
+
+import PatternDemo from '@components/PatternDemo.astro';
+import Container from '@components/Container.astro';
+
+<div class="not-prose">
+	<PatternDemo title="Container" context="docs" component="Container.astro">
+		<Container>
+			<p>Container content</p>
+		</Container>
+	</PatternDemo>
+</div>
+
+This component is available with our Astro Starter Kit.
+
+### Usage
+
+Import the component on the page or component you need, like this:
+
+```jsx
+---
+import Container from '@components/Container.astro';
+---
+```
+
+The Container component will place content in a centered container. It will also add padding to the left and right of the content, to make sure it doesn't touch the edges of the screen.
+
+You probably won't need the Container too often, [Section](/docs/components/section) is often the better choice.
+
+## Props
+
+-   `as` - The HTML element to use for the container. Defaults to `div`.
+-   `class` - Optional CSS class to add to the container.

@@ -1,0 +1,29 @@
+---
+import Section from '@components/Section.astro';
+import Button from '@components/Button.astro';
+import Icon from '@components/Icon.astro';
+---
+
+<Section>
+	<div class="flow flow-space-3 text-center max-w-2xl mx-auto">
+		<span
+			class="text-xs bg-gradient-to-br from-orange-100 to-pink-100 text-black/75 rounded-full px-3 py-1.5 leading-none inline-block uppercase font-bold tracking-wide"
+		>
+			Example
+		</span>
+		<h1>Building a Website has Never Been This Easy</h1>
+		<p class="text-xl text-balance">
+			Lorum ipsum dolor sit amet, consectetur adipiscing elit. Donec a
+			diam lectus.
+		</p>
+		<Button href="/contact">
+			Get Started
+			<Icon name="arrow-right" class="text-white text-xl" slot="end" />
+		</Button>
+	</div>
+</Section>
+
+<!-- /*
+Usage:
+<Hero />
+*/ -->

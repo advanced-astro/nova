@@ -1,0 +1,40 @@
+---
+import Base from '@layouts/Base.astro';
+import Flow from '@components/Flow.astro';
+import PatternDemo from '@components/PatternDemo.astro';
+
+import CenteredTextOnly from '@components/Templates/Heros/CenteredTextOnly.astro';
+import CenteredWithImage from '@components/Templates/Heros/CenteredWithImage.astro';
+import LeftAlignedWithImage from '@components/Templates/Heros/LeftAlignedWithImage.astro';
+import CarouselExample from '@components/Templates/Heros/CarouselExample.astro';
+---
+
+<Base title="Patterns / Misc" class="bg-gray-100">
+	<Flow space="lg">
+		<PatternDemo
+			title="Centered, Text Only"
+			component="Templates/Heros/CenteredTextOnly.astro"
+		>
+			<CenteredTextOnly />
+		</PatternDemo>
+		<PatternDemo
+			title="Centered with Image"
+			component="Templates/Heros/CenteredWithImage.astro"
+		>
+			<CenteredWithImage />
+		</PatternDemo>
+		<PatternDemo
+			title="Left Aligned with Image"
+			component="Templates/Heros/LeftAlignedWithImage.astro"
+		>
+			<LeftAlignedWithImage />
+		</PatternDemo>
+		<PatternDemo
+			title="Carousel"
+			component="Templates/Heros/CarouselExample.astro"
+			docs="/docs/components/carousel"
+		>
+			<CarouselExample />
+		</PatternDemo>
+	</Flow>
+</Base>

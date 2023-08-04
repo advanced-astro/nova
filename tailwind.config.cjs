@@ -4,7 +4,11 @@ const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: [
+		'./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+		'./src/**/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+		'./src/**/**/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+	],
 	theme: {
 		container: {
 			center: true,
@@ -17,20 +21,33 @@ module.exports = {
 			},
 		},
 		extend: {
+			colors: {
+				facebook: '#1877f2',
+				twitter: '#1da1f2',
+				instagram: '#e1306c',
+				linkedin: '#0a66c2',
+				youtube: '#ff0000',
+				tiktok: '#000000',
+				pinterest: '#e60023',
+				github: '#333',
+			},
 			fontFamily: {
-				sans: ['Instrument Sans', ...defaultTheme.fontFamily.sans],
+				sans: [...defaultTheme.fontFamily.sans],
 			},
 		},
 	},
 	plugins: [
 		plugin(function ({ addUtilities, config, e }) {
-			const flowSpaceUtilities = _.map(config('theme.spacing'), (value, key) => {
-				return {
-					[`.${e(`flow-space-${key}`)} > *`]: {
-						'--flow-space': `${value}`,
-					},
-				};
-			});
+			const flowSpaceUtilities = _.map(
+				config('theme.spacing'),
+				(value, key) => {
+					return {
+						[`.${e(`flow-space-${key}`)} > *`]: {
+							'--flow-space': `${value}`,
+						},
+					};
+				}
+			);
 
 			addUtilities(flowSpaceUtilities);
 		}),

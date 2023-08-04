@@ -1,0 +1,71 @@
+---
+import Base from '@layouts/Base.astro';
+import Flow from '@components/Flow.astro';
+import PatternDemo from '@components/PatternDemo.astro';
+
+import Lightbox from '@components/Lightbox.astro';
+import Gallery from '@components/Gallery.astro';
+---
+
+<Base title="Patterns / Images" class="bg-gray-100">
+	<Flow space="lg">
+		<PatternDemo
+			title="Lightbox"
+			component="Lightbox.astro"
+			docs="/docs/components/lightbox"
+			withContainer
+		>
+			<Lightbox
+				images={[
+					{
+						src: 'https://unsplash.it/1280/720?random=1',
+						alt: 'Nice Photo',
+					},
+				]}
+			/>
+		</PatternDemo>
+		<PatternDemo
+			title="Gallery"
+			component="Gallery.astro"
+			docs="/docs/components/gallery"
+			withContainer
+		>
+			<Gallery
+				images={[
+					{
+						src: 'https://unsplash.it/1080?random=1',
+						alt: 'Nice Photo',
+					},
+					{
+						src: 'https://unsplash.it/1080?random=2',
+						alt: 'Nice Photo',
+					},
+					{
+						src: 'https://unsplash.it/1080?random=3',
+						alt: 'Nice Photo',
+					},
+					{
+						src: 'https://unsplash.it/1080?random=4',
+						alt: 'Nice Photo',
+					},
+					{
+						src: 'https://unsplash.it/1080?random=5',
+						alt: 'Nice Photo',
+					},
+					{
+						src: 'https://unsplash.it/1080?random=6',
+						alt: 'Nice Photo',
+					},
+					{
+						src: 'https://unsplash.it/1080?random=7',
+						alt: 'Nice Photo',
+					},
+					{
+						src: 'https://unsplash.it/1080?random=8',
+						alt: 'Nice Photo',
+					},
+				]}
+			/>
+		</PatternDemo>
+	</Flow>
+</Base>

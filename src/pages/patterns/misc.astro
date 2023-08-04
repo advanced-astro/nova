@@ -1,0 +1,45 @@
+---
+import Base from '@layouts/Base.astro';
+import Flow from '@components/Flow.astro';
+import PatternDemo from '@components/PatternDemo.astro';
+
+import Logos from '@components/Templates/Misc/Logos.astro';
+import SocialLinks from '@components/SocialLinks.astro';
+import YoutubeVideo from '@components/Templates/Misc/YoutubeVideo.astro';
+---
+
+<Base title="Patterns / Misc" class="bg-gray-100">
+	<Flow space="lg">
+		<PatternDemo
+			title="Logos"
+			component="Templates/Misc/Logos.astro"
+			withContainer
+		>
+			<Logos
+				class="justify-center"
+				logos={[
+					{ src: '/images/logos/adidas.png', alt: 'Adidas' },
+					{ src: '/images/logos/nike.png', alt: 'Nike' },
+					{ src: '/images/logos/puma.png', alt: 'Puma' },
+					{ src: '/images/logos/starbucks.png', alt: 'Starbucks' },
+				]}
+			/>
+		</PatternDemo>
+		<PatternDemo
+			title="Social Links"
+			component="SocialLinks.astro"
+			docs="/docs/components/social-links"
+			withContainer
+		>
+			<SocialLinks variant="circle" class="justify-center" />
+		</PatternDemo>
+		<PatternDemo
+			title="Youtube Video"
+			component="Templates/Misc/YoutubeVideo.astro"
+			docs="/docs/components/youtube-video"
+			withContainer
+		>
+			<YoutubeVideo id="dQw4w9WgXcQ" />
+		</PatternDemo>
+	</Flow>
+</Base>

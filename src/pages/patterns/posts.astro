@@ -1,0 +1,36 @@
+---
+import site from '@src/site.js';
+import util from '@src/util.js';
+
+import Base from '@layouts/Base.astro';
+import Container from '@components/Container.astro';
+import Flow from '@components/Flow.astro';
+import PatternDemo from '@components/PatternDemo.astro';
+
+import PostPreview from '@components/Templates/Posts/PostPreview.astro';
+import LatestProjects from '@components/Templates/Posts/LatestProjects.astro';
+---
+
+<Base title="Patterns / Posts" class="bg-gray-100">
+	<Flow space="lg">
+		<PatternDemo
+			title="Blog Post Preview"
+			component="Templates/Posts/PostPreview.astro"
+			withContainer
+		>
+			<PostPreview
+				image="https://unsplash.it/800/600"
+				title="Post Title"
+				excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu aliquam ultricies, massa nisl vestibulum elit, nec ultricies nisl nunc eu nisl."
+				href="#"
+				showButton
+			/>
+		</PatternDemo>
+		<PatternDemo
+			title="Latest Projects"
+			component="Templates/Posts/LatestProjects.astro"
+		>
+			<LatestProjects />
+		</PatternDemo>
+	</Flow>
+</Base>

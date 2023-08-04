@@ -1,0 +1,74 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Section
+type: Component
+category: UI
+isIncludedInStarterKit: true
+---
+
+import PatternDemo from '@components/PatternDemo.astro';
+import Section from '@components/Section.astro';
+
+<div class="not-prose">
+	<PatternDemo title="Section" context="docs" component="Section.astro">
+		<Section>
+			<p>Section content</p>
+		</Section>
+	</PatternDemo>
+</div>
+
+This component is available with our Astro Starter Kit.
+
+### Usage
+
+Import the component on the page or component you need, like this:
+
+```jsx
+---
+import Section from '@components/Section.astro';
+---
+```
+
+The Section component makes laying out full width content consistent and easy. If you've used the Section Block from our WordPress Starter Kit, you'll be familiar with how this works.
+
+## Spacing
+
+By default, the Section component adds spacing above and below your content. Sometimes though, you want to stack Sections with the same background colour and this can lead to unwanted spacing. To remove the spacing, you can use the `collapse` props, like this:
+
+```jsx
+<Section collapse>This section has no vertical spacing.</Section>
+<Section collapseTop>This section has no top spacing.</Section>
+<Section collapseBottom>This section has no bottom spacing.</Section>
+```
+
+## Content Container
+
+Usually you want the content inside your Section to be aligned with the Container. If you don't want this however, you can pass `container={false}` to the Section component, like this:
+
+```jsx
+<Section contain={false}></Section>
+```
+
+## Background Image
+
+You can add a background image to your Section by passing the `backgroundImage` prop, like this:
+
+```jsx
+<Section backgroundImage="/images/bg.jpg"></Section>
+```
+
+By default, `object-position: center` and `object-fit: cover` will be applied to the image, but you can override these options by setting a class on the Section. For example, if you want the image to be aligned to the top, you can do this:
+
+```jsx
+<Section class="object-top"></Section>
+```
+
+See the TailwindCSS documentation on [Object Fit](https://tailwindcss.com/docs/object-fit) and [Object Position](https://tailwindcss.com/docs/object-position) for more classes.
+
+### Styling the inner element
+
+You shouldn't need to do this very often, but in the cases where you need to style the inner element of the Section, you can pass a class to the Section component, using the `innerClass` prop, like this:
+
+```jsx
+<Section innerClass="bg-red-500"></Section>
+```

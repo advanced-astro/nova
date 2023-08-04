@@ -1,0 +1,52 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Youtube Video
+type: Component
+category: Misc
+---
+import { Code } from 'astro/components';
+import PatternDemo from '@components/PatternDemo.astro';
+import YoutubeVideo from '@components/Templates/Misc/YoutubeVideo.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="Yotube Video"
+		context="docs"
+		component="Templates/Misc/YoutubeVideo.astro"
+		withContainer
+	>
+		<div class="text-center p-8">
+			<YoutubeVideo id="dQw4w9WgXcQ" />
+		</div>
+	</PatternDemo>
+</div>
+
+This is a component. Copy the code to `components/YoutubeVideo.astro`. This component doesn't provide much styling, it's just a simple wrapper for [Lite Youtube Embed](https://github.com/paulirish/lite-youtube-embed).
+
+### Usage
+
+Import the component where you need, and you can use it like this:
+
+```jsx
+---
+import YoutubeVideo from '@components/YoutubeVideo.astro';
+---
+<YoutubeVideo id="dQw4w9WgXcQ" />
+```
+
+## Youtube Options
+
+This component also supports the parameters that you can pass to a Youtube embed:
+
+- `autoplay`: Automatically start playing the video (True by default, because of how Lite Youtube Embed works.)
+- `controls`: Show or hide the video controls
+- `start`: Start the video at a specific time (in ms)
+- `end`: End the video at a specific time (in ms)
+- `modestBranding`: Show or hide the Youtube logo
+
+```jsx
+---
+import YoutubeVideo from '@components/YoutubeVideo.astro';
+---
+<YoutubeVideo id="dQw4w9WgXcQ" controls start={10} end={30} modestBranding />
+```

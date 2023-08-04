@@ -1,0 +1,99 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Social Links
+type: Component
+category: Misc
+isIncludedInStarterKit: true
+---
+
+import { Code } from 'astro/components';
+import PatternDemo from '@components/PatternDemo.astro';
+import SocialLinks from '@components/SocialLinks.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="Social Links"
+		context="docs"
+		component="SocialLinks.astro"
+		withContainer
+	>
+		<SocialLinks variant="circle" class="justify-center" />
+	</PatternDemo>
+</div>
+
+This component is available with our Astro Starter Kit. You don't need to copy it.
+
+### Supported Sites
+
+As needed, we'll add more to this list, but for now the sites we usually tend to link to are supported:
+
+-   Facebook
+-   Twitter / X
+-   Instagram
+-   LinkedIn
+-   TikTok
+-   Youtube
+-   Pinterest
+
+### Usage
+
+Before you use this component, be sure that you've added the social media links you need for your site to `src/site.js` in the following format:
+
+```js
+export default {
+	...otherConfig,
+
+	/**
+	 * Social Links
+	 */
+	social: {
+		facebook: 'https://www.facebook.com/',
+		twitter: 'https://twitter.com/',
+		instagram: 'https://www.instagram.com/',
+		linkedin: 'https://www.linkedin.com/',
+		youtube: 'https://www.youtube.com/',
+		pinterest: 'https://www.pinterest.com/',
+		tiktok: 'https://www.tiktok.com/',
+	},
+};
+```
+
+Now you can import the component into the page or component you need it and use it!
+
+```jsx
+---
+import SocialLinks from '@components/SocialLinks.astro';
+---
+<SocialLinks />
+```
+
+## Style Variants
+
+You can choose from 3 different styles for the links:
+- Default: Coloured icons with no background
+- Circle: Coloured circled with icon inside
+- Rounded: Coloured rounded square with icon inside
+
+```jsx
+<SocialLinks />
+<SocialLinks variant="circle" />
+<SocialLinks variant="rounded" />
+```
+
+## Including or Excluding Links
+
+By default, all links will be shown. You can specify which links you'd like using the `only` or `except` props.
+
+These props accept an array of site names, like this:
+
+```jsx
+<SocialLinks only={['twitter', 'facebook']} />
+```
+
+In this example, the `only` prop tells the component to display only Twitter and Facebook links.
+
+```jsx
+<SocialLinks except={['twitter', 'facebook']} />
+```
+
+In this example, the `except` prop tells the component to display all available links, except Twitter and Facebook.
