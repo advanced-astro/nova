@@ -13,6 +13,19 @@ export default {
 	url: 'https://nova.resknow.co.uk',
 
 	/**
+	 * Opening Times
+	 */
+	openingTimes: {
+		mon: '09:00 - 17:00',
+		tue: 'Closed',
+		wed: '09:00 - 17:00',
+		thu: '09:00 - 17:00',
+		fri: '09:00 - 17:00',
+		sat: '09:00 - 17:00',
+		sun: 'Closed',
+	},
+
+	/**
 	 * Social Links
 	 */
 	social: {
@@ -71,6 +84,10 @@ export default {
 					{
 						label: 'Lightbox',
 						href: '/docs/components/lightbox',
+					},
+					{
+						label: 'OpeningTimes',
+						href: '/docs/components/opening-times',
 					},
 					{
 						label: 'Section',

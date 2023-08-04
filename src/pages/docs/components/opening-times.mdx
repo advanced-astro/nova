@@ -1,0 +1,61 @@
+---
+layout: '@layouts/DocsPage.astro'
+title: Opening Times
+type: Component
+category: Misc
+isIncludedWithStarterKit: true
+---
+
+import PatternDemo from '@components/PatternDemo.astro';
+import OpeningTimes from '@components/OpeningTimes.astro';
+
+<div class="not-prose">
+	<PatternDemo
+		title="OpeningTimes"
+		context="docs"
+		component="OpeningTimes.astro"
+		withContainer
+	>
+		<OpeningTimes />
+	</PatternDemo>
+</div>
+
+This component is available with our Astro Starter Kit.
+
+## Usage
+
+Before you use this component, be sure that you've added the opening times to `src/site.js` in the following format:
+
+```js
+export default {
+	...otherConfig,
+
+	/**
+	 * Opening Times
+	 */
+	openingTimes: {
+		mon: '09:00 - 17:00',
+		tue: 'Closed',
+		wed: '09:00 - 17:00',
+		thu: '09:00 - 17:00',
+		fri: '09:00 - 17:00',
+		sat: '09:00 - 17:00',
+		sun: 'Closed',
+	},
+};
+```
+
+Now you can import the component into the page or component you need it and use it!
+
+```jsx
+---
+import OpeningTimes from '@components/OpeningTimes.astro';
+---
+<OpeningTimes />
+```
+
+The current day of the week will be highlighted. To change the styling, you can edit the `OpeningTimes.astro` file. The class applied is on line 24:
+
+```jsx
+x-bind:class={`{ 'font-bold': today === '${day}' }`}
+```
