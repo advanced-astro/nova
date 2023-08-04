@@ -1,5 +1,5 @@
 ---
-import { twMerge as tw } from 'tailwind-merge';
+import { twMerge as merge } from 'tailwind-merge';
 
 interface Props {
 	href?: string;
@@ -23,7 +23,7 @@ const variants = {
 
 <a
 	href={href}
-	class={tw(
+	class={merge(
 		'no-underline flex items-center gap-2',
 		variants[variant],
 		className

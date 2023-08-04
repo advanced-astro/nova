@@ -1,5 +1,5 @@
 ---
-import { twMerge as tw } from 'tailwind-merge';
+import { twMerge as merge } from 'tailwind-merge';
 
 interface Props {
 	class?: string;
@@ -17,7 +17,7 @@ const sizes = {
 };
 ---
 
-<div class={tw('flex flex-wrap gap-6 items-center', sizes[size], className)}>
+<div class={merge('flex flex-wrap gap-6 items-center', sizes[size], className)}>
 	{
 		logos.map(({ src, alt }) => (
 			<img src={src} alt={alt} class="w-auto h-12" loading="lazy" />

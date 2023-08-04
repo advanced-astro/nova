@@ -1,7 +1,6 @@
 ---
 import Section from '@components/Section.astro';
 import Flow from '@components/Flow.astro';
-import Grid from '@components/Grid.astro';
 import ProjectCard from '@components/ProjectCard.astro';
 
 interface Props {
@@ -20,7 +19,7 @@ const projects = await projectsRaw.json();
 <Section class:list={[className]}>
 	<Flow space="md">
 		<h2 class="text-center">Latest Projects</h2>
-		<Grid class="md:gap-8">
+		<div class="grid gap-6 md:grid-cols-2 md:gap-8">
 			{
 				projects.map((project) => (
 					<ProjectCard
@@ -33,7 +32,7 @@ const projects = await projectsRaw.json();
 					/>
 				))
 			}
-		</Grid>
+		</div>
 	</Flow>
 </Section>
 
