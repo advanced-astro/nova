@@ -1,0 +1,100 @@
+---
+import site from '@src/site.js';
+import util from '@src/util.js';
+import Container from '@components/Container.astro';
+import Flow from '@components/Flow.astro';
+import SocialLinks from '@components/SocialLinks.astro';
+import Icon from '@components/Icon.astro';
+---
+
+<footer class="text-xs">
+	<div class="grid md:grid-cols-2">
+		<div class="h-80 md:h-full">
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2487.8098997190855!2d0.10292561228451809!3d51.42491861660774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8ac1b4d9ddcb7%3A0xc03a536b4d7958f3!2sResknow!5e0!3m2!1sen!2suk!4v1691148951256!5m2!1sen!2suk"
+				width="600"
+				height="450"
+				style="border:0;"
+				allowfullscreen=""
+				loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade"
+				class="w-full h-full"></iframe>
+		</div>
+		<div class="bg-teal-300 text-slate-800 p-16 lg:py-24">
+			<Flow class="max-w-lg">
+				<h2 class="text-4xl font-extrabold">Get in touch</h2>
+				<p>
+					Nullam congue velit eu fringilla fringilla. Etiam nisl eros,
+					viverra ut nisl sit amet, mattis maximus ante. Vestibulum
+					ullamcorper ligula quam, eget blandit sapien egestas eget.
+				</p>
+
+				<Flow as="ul" space="sm" class="py-4">
+					<li class="flex gap-3">
+						<Icon
+							name="map-marker"
+							class="flex-shrink-0 w-5 h-5 fill-current"
+						/>
+						<p>{site.address}</p>
+					</li>
+					<li class="flex gap-3">
+						<Icon
+							name="phone"
+							class="flex-shrink-0 w-5 h-5 fill-current"
+						/>
+						<a
+							class="text-gray-900 font-bold"
+							href={`tel:${site.phone}`}>{site.phone}</a
+						>
+					</li>
+					<li class="flex gap-3">
+						<Icon
+							name="at"
+							class="flex-shrink-0 w-5 h-5 fill-current"
+						/>
+						<a class="text-gray-900" href={`mailto:${site.email}`}
+							>{site.email}</a
+						>
+					</li>
+				</Flow>
+
+				<Flow space="sm">
+					<h2 class="text-lg">Or follow us on</h2>
+					<SocialLinks
+						variant="round"
+						only={['facebook', 'linkedin']}
+					/>
+				</Flow>
+			</Flow>
+		</div>
+	</div>
+	<div class="bg-gray-800 text-gray-200 py-6">
+		<Container class="grid gap-3 md:grid-cols-3 md:items-center">
+			<p>
+				<a
+					class="text-gray-200 hover:text-teal-300"
+					href="/privacy-policy">Privacy Policy</a
+				>
+			</p>
+			<p class="md:text-center">
+				&copy; {util.currentYear}
+				{site.name}, all rights reserved.
+			</p>
+			<p class="flex items-center gap-3 md:justify-end">
+				<img
+					class="md:order-2"
+					src="https://assets.resknow.co.uk/branding/resknow/r-48x48.png"
+					width="28"
+					height="28"
+					alt=""
+					loading="lazy"
+				/>
+				<a
+					class="text-gray-200 hover:text-teal-300"
+					href="https://www.resknow.co.uk"
+					rel="nofollow">Web Design by Resknow</a
+				>
+			</p>
+		</Container>
+	</div>
+</footer>

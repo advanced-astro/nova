@@ -9,9 +9,10 @@ import InformationWithSocialLinks from '@components/Templates/Footers/Informatio
 import InformationWithSocialLinksDark from '@components/Templates/Footers/InformationWithSocialLinksDark.astro';
 import WithNavigationAndContact from '@components/Templates/Footers/WithNavigationAndContact.astro';
 import WithNavigationAndContactDark from '@components/Templates/Footers/WithNavigationAndContactDark.astro';
+import ContactSection from '@components/Templates/Footers/ContactSection.astro';
 ---
 
-<Base title="Patterns / Text" class="bg-gray-100">
+<Base title="Patterns / Footers" class="bg-gray-100">
 	<Flow space="lg">
 		<PatternDemo
 			title="Centered Simple"
@@ -48,6 +49,12 @@ import WithNavigationAndContactDark from '@components/Templates/Footers/WithNavi
 			component="Templates/Footers/WithNavigationAndContactDark.astro"
 		>
 			<WithNavigationAndContactDark />
+		</PatternDemo>
+		<PatternDemo
+			title="Contact Section"
+			component="Templates/Footers/ContactSection.astro"
+		>
+			<ContactSection />
 		</PatternDemo>
 	</Flow>
 </Base>
