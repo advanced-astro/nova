@@ -1,0 +1,57 @@
+---
+import Icon from '@components/Icon.astro';
+import Flow from '@components/Flow.astro';
+
+const services = [
+	{
+		image: 'https://unsplash.it/600/800?random=1',
+		title: 'Building',
+		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+		href: '#',
+	},
+	{
+		image: 'https://unsplash.it/600/800?random=2',
+		title: 'Repairs',
+		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+		href: '#',
+	},
+	{
+		image: 'https://unsplash.it/600/800?random=3',
+		title: 'Extensions',
+		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+		href: '#',
+	},
+];
+---
+
+<div class="grid gap-6 md:grid-cols-3 md:gap-8">
+	{
+		services.map(({ image, title, description, href }) => {
+			return (
+				<article
+					class="bg-cover bg-center relative group"
+					style={`background-image: url(${image})`}
+				>
+					<div class="bg-gradient-to-b from-black/0 to-black/70 text-white text-sm flex flex-col justify-end h-80 md:h-96">
+						<Flow space="xs" class="p-6">
+							<h2 class="transition duration-500 origin-bottom-left group-hover:scale-125">
+								{title}
+							</h2>
+							<p class="text-gray-200">{description}</p>
+							<a
+								class="pt-3 flex items-center gap-2 text-white no-underline static font-bold hover:text-white before:absolute before:inset-0 before:z-20"
+								href={href}
+							>
+								<span>Learn more</span>
+								<Icon
+									name="arrow-right"
+									class="w-5 h-5 transition duration-500 group-hover:translate-x-2"
+								/>
+							</a>
+						</Flow>
+					</div>
+				</article>
+			);
+		})
+	}
+</div>

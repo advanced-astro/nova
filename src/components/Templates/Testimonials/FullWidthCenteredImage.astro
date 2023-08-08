@@ -1,0 +1,28 @@
+---
+import Icon from '@components/Icon.astro';
+import Flow from '@components/Flow.astro';
+import Section from '@components/Section.astro';
+---
+
+<Section
+	backgroundImage="https://unsplash.it/1920/1080"
+	innerClass="bg-black/60 text-white"
+>
+	<Flow class="text-center max-w-lg mx-auto">
+		<div class="flex items-center justify-center gap-3">
+			<Icon name="star" class="w-5 h-5 fill-yellow-400" />
+			<Icon name="star" class="w-5 h-5 fill-yellow-400" />
+			<Icon name="star" class="w-5 h-5 fill-yellow-400" />
+			<Icon name="star" class="w-5 h-5 fill-yellow-400" />
+			<Icon name="star" class="w-5 h-5 fill-yellow-400" />
+		</div>
+		<p class="text-lg">
+			My busy schedule leaves little, if any, time for blogging and social
+			media. The Lorem Ipsum Company has been a huge part of helping me
+			grow my business through organic search and content marketing.
+		</p>
+		<p class="text-sm">
+			- Jane Doe, CEO at <a href="https://example.com">Example.com</a>
+		</p>
+	</Flow>
+</Section>

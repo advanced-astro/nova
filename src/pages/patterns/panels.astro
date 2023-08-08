@@ -1,0 +1,24 @@
+---
+import Base from '@layouts/Base.astro';
+import Flow from '@components/Flow.astro';
+import PatternDemo from '@components/PatternDemo.astro';
+import Section from '@components/Section.astro';
+
+import Simple from '@components/Templates/Panels/Simple.astro';
+import Overlay from '@components/Templates/Panels/Overlay.astro';
+---
+
+<Base title="Patterns / Panels" class="bg-gray-100">
+	<Flow space="lg">
+		<PatternDemo title="Simple" component="Templates/Panels/Simple.astro">
+			<Section>
+				<Simple />
+			</Section>
+		</PatternDemo>
+		<PatternDemo title="Overlay" component="Templates/Panels/Overlay.astro">
+			<Section>
+				<Overlay />
+			</Section>
+		</PatternDemo>
+	</Flow>
+</Base>

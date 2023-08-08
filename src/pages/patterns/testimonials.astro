@@ -1,0 +1,25 @@
+---
+import Base from '@layouts/Base.astro';
+import Flow from '@components/Flow.astro';
+import PatternDemo from '@components/PatternDemo.astro';
+
+import FullWidthCentered from '@components/Templates/Testimonials/FullWidthCentered.astro';
+import FullWidthCenteredImage from '@components/Templates/Testimonials/FullWidthCenteredImage.astro';
+---
+
+<Base title="Patterns / Text" class="bg-gray-100">
+	<Flow space="lg">
+		<PatternDemo
+			title="Full Width, Centered"
+			component="Templates/Testimonials/FullWidthCentered.astro"
+		>
+			<FullWidthCentered />
+		</PatternDemo>
+		<PatternDemo
+			title="Full Width, Centered + Image"
+			component="Templates/Testimonials/FullWidthCenteredImage.astro"
+		>
+			<FullWidthCenteredImage />
+		</PatternDemo>
+	</Flow>
+</Base>
